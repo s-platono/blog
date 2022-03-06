@@ -1,6 +1,6 @@
 <template>
   <div class="m-8">
-    <TheHeader />
+    <TheHeader/>
 
     <h1 class="font-bold text-4xl">Blog Posts</h1>
     <ul class="flex flex-wrap">
@@ -51,17 +51,10 @@
       <p class="mt-4">
         Created by
         <a
-          href="https://twitter.com/debs_obrien"
+          href="https://twitter.com/el_platono"
           class="font-bold hover:underline"
-          >Debbie O'Brien</a
+        >Senior Platono</a
         >
-        at NuxtJS. See the
-        <a
-          href="https://nuxtjs.org/blog/creating-blog-with-nuxt-content"
-          class="font-bold hover:underline"
-          >tutorial</a
-        >
-        for how to build it.
       </p>
     </footer>
   </div>
@@ -69,7 +62,7 @@
 
 <script>
 export default {
-  async asyncData({ $content, params }) {
+  async asyncData({$content, params}) {
     const articles = await $content('articles')
       .only(['title', 'description', 'img', 'slug', 'author'])
       .sortBy('createdAt', 'desc')
@@ -90,10 +83,12 @@ export default {
 .article-card {
   border-radius: 8px;
 }
+
 .article-card a {
   background-color: #fff;
   border-radius: 8px;
 }
+
 .article-card img div {
   border-radius: 8px 0 0 8px;
 }
