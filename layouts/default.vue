@@ -1,18 +1,6 @@
 <template>
-  <div class="">
-    <header class="flex">
-      <TheHeader/>
-    </header>
-    <main>
-      <Nuxt/>
-    </main>
-    <footer class="flex justify-center border-gray-500 border-t-2">
-      <p class="mt-4">
-        Created by
-        <a href="https://twitter.com/el_platono"
-          class="font-bold hover:underline">Senior Platono</a>
-      </p>
-    </footer>
+  <div>
+    <Nuxt/>
   </div>
 </template>
 

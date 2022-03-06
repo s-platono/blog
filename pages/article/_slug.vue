@@ -10,7 +10,9 @@
       />
       <div class="overlay"></div>
       <div class="absolute top-32 left-32 text-white">
-<!--        <NuxtLink to="/"><Logo /></NuxtLink>-->
+        <NuxtLink to="/">
+          <Logo/>
+        </NuxtLink>
         <div class="mt-16 -mb-3 flex uppercase text-sm">
           <p class="mr-3">
             {{ formatDate(article.updatedAt) }}
@@ -29,7 +31,7 @@
           </NuxtLink>
         </span>
       </div>
-<!--      <div class="flex absolute top-3rem right-3rem">
+      <div class="flex absolute top-3rem right-3rem">
         <NuxtLink
           to="/"
           class="mr-8 self-center text-white font-bold hover:underline"
@@ -42,8 +44,8 @@
         >
           Tutorial
         </a>
-        <AppSearchInput />
-      </div>-->
+        <AppSearchInput/>
+      </div>
     </div>
     <div
       class="relative xs:py-8 xs:px-8 lg:py-32 lg:px-16 lg:w-1/2 xs:w-full h-full overflow-y-scroll markdown-body post-right custom-scroll"
