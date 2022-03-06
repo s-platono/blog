@@ -1,7 +1,5 @@
 <template>
-  <div class="m-8">
-    <TheHeader/>
-
+  <div class="">
     <h1 class="font-bold text-4xl">Blog Posts</h1>
     <ul class="flex flex-wrap">
       <li
@@ -47,16 +45,6 @@
         </NuxtLink>
       </li>
     </ul>
-    <footer class="flex justify-center border-gray-500 border-t-2">
-      <p class="mt-4">
-        Created by
-        <a
-          href="https://twitter.com/el_platono"
-          class="font-bold hover:underline"
-        >Senior Platono</a
-        >
-      </p>
-    </footer>
   </div>
 </template>
 
