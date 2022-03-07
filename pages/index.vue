@@ -62,8 +62,12 @@
 
 <script>
 import {mapGetters} from 'vuex'
+import TheHeader from "~/components/TheHeader";
 
 export default {
+  components: {
+    TheHeader
+  },
   computed: {
     ...mapGetters({
       tags: 'tags',

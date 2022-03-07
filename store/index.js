@@ -5,7 +5,7 @@ export const actions = {
       .sortBy('createdAt', 'asc')
       .fetch()
     const articles = await $content('articles')
-      // 
+      //
       .sortBy('createdAt', 'desc')
       .fetch()
     const authors = await $content('articles')
@@ -46,11 +46,9 @@ export const mutations = {
 export const getters = {
   tags: s => s.tags,
   articles: s => s.articles,
-  author: s => s.authors,
+  authors: s => s.authors,
 
   article: s => slug => s.articles.filter(a => a.slug === slug)[0],
-  tagList: s => tagList => {
-    console.log(tagList)
-    return s.tags.filter(t => tagList.includes(t.name))
-  }
+  tagList: s => tagList => s.tags.filter(t => tagList.includes(t.name)),
+  author: s => slug => s.authors.filter(t => t.slug === slug)[0]
 }

@@ -85,8 +85,6 @@
   </article>
 </template>
 <script>
-import {mapGetters} from 'vuex'
-
 export default {
   async asyncData({ $content, params, store }) {
     // const article = await $content('articles', params.slug).fetch()
