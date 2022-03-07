@@ -20,14 +20,8 @@
 <script>
 export default {
   name: 'Navbar',
-  async asyncData({$content}) {
-    const tags = await $content('tags')
-      .only(['name', 'description', 'img', 'slug'])
-      .sortBy('createdAt', 'asc')
-      .fetch()
-    return {
-      tags
-    }
+  props: {
+    tags: Array
   }
 }
 </script>

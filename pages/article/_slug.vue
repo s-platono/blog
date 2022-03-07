@@ -85,13 +85,17 @@
   </article>
 </template>
 <script>
+import {mapGetters} from 'vuex'
+
 export default {
-  async asyncData({ $content, params }) {
-    const article = await $content('articles', params.slug).fetch()
-    const tagsList = await $content('tags')
+  async asyncData({ $content, params, store }) {
+    // const article = await $content('articles', params.slug).fetch()
+    const article = store.getters.article(params.slug)
+   /* const tagsList = await $content('tags')
       .only(['name', 'slug'])
       .where({ name: { $containsAny: article.tags } })
-      .fetch()
+      .fetch()*/
+    const tagsList = store.getters.tagList(article.tags)
     const tags = Object.assign({}, ...tagsList.map((s) => ({ [s.name]: s })))
     const [prev, next] = await $content('articles')
       .only(['title', 'slug'])

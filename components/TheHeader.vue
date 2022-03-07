@@ -1,15 +1,18 @@
 <template>
   <header class="flex">
     <NuxtLink to="/"><Logo class="mb-4" /></NuxtLink>
-    <Navbar/>
+    <Navbar :tags="tags"/>
     <AppSearchInput class="ml-8" />
   </header>
 </template>
 <script>
-import Navbar from "~/components/Navbar";
+import {mapGetters} from 'vuex'
+
 export default {
-  comments: {
-    Navbar
+  computed: {
+    ...mapGetters ({
+      tags: 'tags'
+    })
   }
 }
 </script>

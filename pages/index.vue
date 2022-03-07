@@ -61,8 +61,16 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+
 export default {
-  async asyncData({$content, params}) {
+  computed: {
+    ...mapGetters({
+      tags: 'tags',
+      articles: 'articles'
+    })
+  },
+  /*async asyncData({$content, params}) {
     const articles = await $content('articles')
       .only(['title', 'description', 'img', 'slug', 'author'])
       .sortBy('createdAt', 'desc')
@@ -75,7 +83,7 @@ export default {
       articles,
       tags
     }
-  }
+  }*/
 }
 </script>
 
