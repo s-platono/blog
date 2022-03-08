@@ -1,27 +1,6 @@
 <template>
-  <div class="col-lg-12 flex-lg flex-lg-wrap d-flex justify-content-between">
-<!--    <b-card class="overflow-hidden col-lg-3 m-2"
-            v-for="article of articles"
-            :key="article.slug"
-            :img-src="article.img"
-    >
-      <template #header>
-        <NuxtLink
-          :to="{ name: 'article-slug', params: { slug: article.slug } }"
-        >
-          {{ article.title }}
-        </NuxtLink>
-      </template>
-      <b-card-body>
-        <b-card-text>
-          {{ article.description }}
-        </b-card-text>
-      </b-card-body>
-      <template #footer>
-        <small class="text-muted">{{ article.author.name }}, {{ formatDate(article.updatedAt) }}</small>
-      </template>
+  <div class="col-lg-12 d-flex justify-content-between flex-wrap">
 
-    </b-card>-->
     <ArticleCard v-for="article of articles" :key="article.slug" :article="article" />
     <!--    <h3 class="mb-4 font-bold text-2xl uppercase text-center">Topics</h3>-->
     <!--    <ul class="flex flex-wrap mb-4 text-center">

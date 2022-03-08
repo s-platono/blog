@@ -1,5 +1,5 @@
 <template>
-  <b-card class="overflow-hidden col-lg-3 m-2 p-0" :img-src="article.img">
+  <b-card class="overflow-hidden col-xs-12 col-sm-6 col-md-5 col-lg-3 m-md-1 m-lg-2 mb-sm-1 mb-2 p-0 " :img-src="article.img">
     <template #header>
       <NuxtLink
         :to="{ name: 'article-slug', params: { slug: article.slug } }"

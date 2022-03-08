@@ -7,10 +7,10 @@
     <footer class="footer">
       <div class="container">
         <p class="mt-4">
-          Created by
           <a href="https://twitter.com/el_platono" class="font-bold hover:underline">
-            Senior Platono
-          </a> <font-awesome-icon :icon="['fa-brands', 'twitter']"/>
+            <font-awesome-icon :icon="['fa-brands', 'twitter']"/>
+          </a>
+          {{new Date().getFullYear()}}
         </p>
       </div>
     </footer>
