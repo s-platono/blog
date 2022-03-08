@@ -42,11 +42,8 @@ export default {
         href: '/blog/favicon-16x16.png'
       },
       {rel: 'manifest', href: '/blog/site.webmanifest'},
-      // { rel: 'stylesheet', href: '/bootstrap/bootstrap.min.css' }
     ],
     script: [
-      // { src: "/bootstrap/bootstrap.bundle.min.js", type: "text/javascript"},
-      // { src: 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js', integrity: 'sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p', type: 'text/javascript', crossorigin: 'anonymous'}
     ]
   },
   /*
