@@ -1,26 +1,23 @@
 <template>
-  <form action="#" class="d-flex">
-    <input
+  <b-nav-form class="d-flex">
+    <b-form-input
       v-model="searchQuery"
       type="search"
       autocomplete="off"
-      placeholder="Search Articles"
-      class="form-control mr-2"
+      placeholder="Search articles"
+      size="sm"
+      class="mr-sm-2"
     />
-    <ul
-      v-if="articles.length"
-      class="z-10 absolute w-auto flex-1 top-40 bg-white dark:bg-gray-900 rounded-md border border-gray-300 overflow-hidden"
+    <b-nav-item-dropdown right
+                         v-show="articles.length"
+                         ref="dropdownSearch"
     >
-      <li v-for="article of articles" :key="article.slug">
-        <NuxtLink
-          :to="{ name: 'article-slug', params: { slug: article.slug } }"
-          class="flex px-4 py-2 items-center leading-5 transition ease-in-out duration-150 text-green-500 hover:text-black"
-        >
-          {{ article.title }}
-        </NuxtLink>
-      </li>
-    </ul>
-  </form>
+      <b-dropdown-item v-for="article of articles" :key="article.slug"
+                       :to="{ name: 'article-slug', params: { slug: article.slug } }">
+        {{ article.title }}
+      </b-dropdown-item>
+    </b-nav-item-dropdown>
+  </b-nav-form>
 </template>
 <script>
 export default {
@@ -34,12 +31,14 @@ export default {
     async searchQuery(searchQuery) {
       if (!searchQuery) {
         this.articles = []
+        this.$refs.dropdownSearch.visible = false
         return
       }
       this.articles = await this.$content('articles')
         .limit(6)
         .search(searchQuery)
         .fetch()
+      if (this.articles.length > 0) this.$refs.dropdownSearch.visible = true
     }
   }
 }

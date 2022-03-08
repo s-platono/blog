@@ -66,7 +66,6 @@ export default {
    ** https://nuxtjs.org/guide/plugins
    */
   plugins: [
-    {src: '~/plugins/bootstrap', mode: 'client'}
   ],
   /*
    ** Auto import components
@@ -83,6 +82,7 @@ export default {
   modules: [
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
+    'bootstrap-vue/nuxt'
   ],
   /*
    ** Content module configuration
