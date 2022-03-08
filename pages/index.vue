@@ -1,38 +1,28 @@
 <template>
-  <div>
-    <Header/>
-    <b-card no-body class="overflow-hidden"
+  <div class="col-lg-12 flex-lg flex-lg-wrap d-flex justify-content-between">
+<!--    <b-card class="overflow-hidden col-lg-3 m-2"
             v-for="article of articles"
             :key="article.slug"
-            :title="article.title"
-            img-top
             :img-src="article.img"
     >
-      <!--      <b-row no-gutters>-->
-      <!--        <b-col md="6">
-                <b-card-img-lazy
-                  v-if="article.img"
-                  class="rounded-9"
-                  :alt="article.title"
-                  :src="article.img"
-                />
-              </b-col> -->
-      <b-col md="6">
+      <template #header>
         <NuxtLink
           :to="{ name: 'article-slug', params: { slug: article.slug } }"
         >
-          <b-card-body>
-            <b-card-text>
-              {{ article.description }}
-            </b-card-text>
-            <template #footer>
-              <small class="text-muted">{{ article.author.name }}, {{ formatDate(article.updatedAt) }}</small>
-            </template>
-          </b-card-body>
+          {{ article.title }}
         </NuxtLink>
-      </b-col>
-      <!--      </b-row>-->
-    </b-card>
+      </template>
+      <b-card-body>
+        <b-card-text>
+          {{ article.description }}
+        </b-card-text>
+      </b-card-body>
+      <template #footer>
+        <small class="text-muted">{{ article.author.name }}, {{ formatDate(article.updatedAt) }}</small>
+      </template>
+
+    </b-card>-->
+    <ArticleCard v-for="article of articles" :key="article.slug" :article="article" />
     <!--    <h3 class="mb-4 font-bold text-2xl uppercase text-center">Topics</h3>-->
     <!--    <ul class="flex flex-wrap mb-4 text-center">
           <li
@@ -49,28 +39,18 @@
             </NuxtLink>
           </li>
         </ul>-->
-    <footer class="footer">
-      <div class="container">
-        <p class="mt-4">
-          Created by
-          <a
-            href="https://twitter.com/el_platono"
-            class="font-bold hover:underline"
-          >Senior Platono</a
-          >
-        </p>
-      </div>
-    </footer>
+
   </div>
 </template>
 
 <script>
 import {mapGetters} from 'vuex'
 import Header from "~/components/Header";
+import ArticleCard from '~/components/ArticleCard'
 
 export default {
   components: {
-    Header
+    Header, ArticleCard
   },
   computed: {
     ...mapGetters({
@@ -92,12 +72,7 @@ export default {
       tags
     }
   }*/
-  methods: {
-    formatDate(date) {
-      const options = {year: 'numeric', month: 'long', day: 'numeric'}
-      return new Date(date).toLocaleDateString('ru', options)
-    }
-  }
+
 }
 </script>
 

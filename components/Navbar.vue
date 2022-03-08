@@ -1,16 +1,12 @@
 <template>
-  <b-navbar toggleable="lg" type="dark" variant="info">
+  <b-navbar toggleable="lg" type="dark" variant="dark">
     <NuxtLink to="/" class="navbar-brand">
       <Logo class="mb-4"/>
     </NuxtLink>
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav class="navbar-nav mr-auto mb-3 mb-lg-0">
-        <b-nav-item
-          v-for="tag of tags"
-          :key="tag.slug"
-          :to="`/tag/${tag.slug}`"
-        >
+        <b-nav-item v-for="tag of tags" :key="tag.slug" :to="`/tag/${tag.slug}`">
           {{ tag.name }}
         </b-nav-item>
         <b-nav-item-dropdown text="DD Test">
@@ -36,12 +32,17 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-nav {
-  background-color: black;
-}
 
 .navbar-dark .navbar-nav .nav-link {
-  color: white;
+  font-weight: 800;
+  font-size: 1.4rem;
+
+  .navbar-brand {
+    color: #999;
+    font-weight: bolder;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+  }
 
   &:hover {
     color: rgba(255, 255, 255, .64);

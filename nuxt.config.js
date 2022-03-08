@@ -75,7 +75,9 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [],
+  buildModules: [
+    '@nuxtjs/fontawesome',
+  ],
   /*
    ** Nuxt.js modules
    */
@@ -100,5 +102,12 @@ export default {
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
-  build: {}
+  build: {},
+
+  fontawesome: {
+    icons: {
+      solid: true,
+      brands: true
+    }
+  }
 }
