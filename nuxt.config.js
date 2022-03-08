@@ -42,6 +42,8 @@ export default {
         href: '/blog/favicon-16x16.png'
       },
       {rel: 'manifest', href: '/blog/site.webmanifest'}
+    ],
+    script: [
     ]
   },
   /*
@@ -51,14 +53,18 @@ export default {
     { src: '~/assets/css/styles.scss', lang: 'sass'}
   ],
   loading: {
-    color: 'blue',
-    height: '5px'
+    color: 'DodgerBlue',
+    height: '10px',
+    continuous: true,
+    duration: 3000
   },
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [],
+  plugins: [
+    '@/plugins/bootstrap-vue',
+  ],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -73,7 +79,8 @@ export default {
    */
   modules: [
     // Doc: https://github.com/nuxt/content
-    '@nuxt/content'
+    '@nuxt/content',
+    'bootstrap-vue/nuxt'
   ],
   /*
    ** Content module configuration

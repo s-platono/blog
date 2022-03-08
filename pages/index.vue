@@ -1,6 +1,6 @@
 <template>
   <div class="m-8">
-    <TheHeader/>
+    <Header/>
 
     <h1 class="font-bold text-4xl">Blog Posts</h1>
     <ul class="flex flex-wrap">
@@ -62,11 +62,11 @@
 
 <script>
 import {mapGetters} from 'vuex'
-import TheHeader from "~/components/TheHeader";
+import Header from "~/components/Header";
 
 export default {
   components: {
-    TheHeader
+    Header
   },
   computed: {
     ...mapGetters({
