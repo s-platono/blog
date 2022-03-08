@@ -47,7 +47,9 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: [
+    { src: '~/assets/css/styles.scss', lang: 'sass'}
+  ],
   loading: {
     color: 'blue',
     height: '5px'
@@ -65,13 +67,7 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [
-    // Doc: https://github.com/nuxt-community/eslint-module
-    // '@nuxtjs/eslint-module',
-    // Doc: https://github.com/nuxt-community/stylelint-module
-    // '@nuxtjs/stylelint-module',
-    // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-  ],
+  buildModules: [],
   /*
    ** Nuxt.js modules
    */
