@@ -38,7 +38,9 @@ export default {
       },
       {rel: 'manifest', href: '/site.webmanifest'},
     ],
-    script: []
+    script: [
+
+    ]
   },
 
   css: [
@@ -59,7 +61,8 @@ export default {
 
   buildModules: [
     '@nuxtjs/fontawesome',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    '@nuxtjs/google-analytics'
   ],
 
   modules: [
@@ -87,5 +90,8 @@ export default {
   },
   styleResources: {
     scss: ['./assets/css/styles.scss']
+  },
+  googleAnalytics: {
+    id: 'G-Z0PKRYK0KZ'
   }
 }
