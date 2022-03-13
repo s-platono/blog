@@ -1,8 +1,8 @@
 export default {
   target: 'static',
-  router: {
-    base: '/blog/'
-  },
+  // router: {
+  //   base: '/blog/'
+  // },
   head: {
     title: 'Senior Platono',
     meta: [
@@ -18,25 +18,25 @@ export default {
       }
     ],
     link: [
-      {rel: 'icon', type: 'image/x-icon', href: '/blog/favicon.ico'},
+      {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
       {
         rel: 'apple-touch-icon',
         sizes: '180x180',
-        href: '/blog/apple-touch-icon.png'
+        href: '/apple-touch-icon.png'
       },
       {
         rel: 'icon',
         type: 'image/png',
         sizes: '32x32',
-        href: '/blog/favicon-32x32.png'
+        href: '/favicon-32x32.png'
       },
       {
         rel: 'icon',
         type: 'image/png',
         sizes: '16x16',
-        href: '/blog/favicon-16x16.png'
+        href: '/favicon-16x16.png'
       },
-      {rel: 'manifest', href: '/blog/site.webmanifest'},
+      {rel: 'manifest', href: '/site.webmanifest'},
     ],
     script: []
   },
