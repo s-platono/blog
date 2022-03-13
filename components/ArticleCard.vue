@@ -1,22 +1,22 @@
 <template>
-  <b-card class="overflow-hidden col-xs-12 col-sm-6 col-md-5 col-lg-3 m-md-1 m-lg-2 mb-sm-1 mb-2 p-0 " :img-src="article.img">
-    <template #header>
-      <NuxtLink
-        :to="{ name: 'article-slug', params: { slug: article.slug } }"
-      >
-        {{ article.title }}
-      </NuxtLink>
-    </template>
-    <b-card-body>
+  <NuxtLink class="article col-xs-12 col-sm-6 col-md-5 col-lg-3 mb-4"
+    :to="{ name: 'article-slug', params: { slug: article.slug } }"
+  >
+    <b-card class="overflow-hidden p-0"
+            overlay
+            :img-src="article.img"
+            text-variant="white"
+            :title=" article.title "
+            :sub-title="`${article.author.name}, ${formatDate(article.updatedAt)}`"
+            sub-title-text-variant="white"
+            img-height="300px"
+            img-width="300px"
+    >
       <b-card-text>
         {{ article.description }}
       </b-card-text>
-    </b-card-body>
-    <template #footer>
-      <small class="text-muted">{{ article.author.name }}, {{ formatDate(article.updatedAt) }}</small>
-    </template>
-
-  </b-card>
+    </b-card>
+  </NuxtLink>
 </template>
 
 <script>
@@ -35,6 +35,15 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+.article {
+  &:hover {
+    & .card {
+      border: none;
+      box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.4);
+      -webkit-box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.4);
+      -moz-box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.4);
+    }
+  }
+}
 </style>

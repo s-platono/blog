@@ -1,12 +1,12 @@
 <template>
-  <b-nav-form class="d-flex">
+  <b-nav-form class="d-flex p-0">
     <b-form-input
       v-model="searchQuery"
       type="search"
       autocomplete="off"
       placeholder="Search articles"
       size="sm"
-      class="mr-sm-2"
+      class="mr-sm-2 col-sm-12"
     />
     <b-nav-item-dropdown right
                          v-show="articles.length"
