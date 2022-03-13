@@ -1,7 +1,7 @@
 <template>
-  <header id="header" class="fixed-top">
-    <Navbar :tags="tags"/>
-  </header>
+    <header id="main-header" role="banner" data-stellar-background-ratio="0.5">
+      <Navbar :tags="tags"/>
+    </header>
 </template>
 <script>
 import {mapGetters} from 'vuex'
@@ -20,3 +20,6 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+
+</style>

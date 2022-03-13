@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable="lg" type="dark" variant="dark">
+  <b-navbar toggleable="lg" type="dark" variant="dark" fixed="top">
     <NuxtLink to="/" class="navbar-brand">
       <Logo class="mb-4"/>
     </NuxtLink>
@@ -9,7 +9,7 @@
         <b-nav-item v-for="tag of tags" :key="tag.slug" :to="`/tag/${tag.slug}`">
           {{ tag.name }}
         </b-nav-item>
-        <b-nav-item-dropdown text="DD Test">
+        <b-nav-item-dropdown text="DD Test" hidden>
           <b-dropdown-item to="#">Dropdown item test</b-dropdown-item>
           <b-dropdown-item to="#">Dropdown item test 2</b-dropdown-item>
         </b-nav-item-dropdown>
@@ -28,6 +28,9 @@ export default {
   },
   comments: {
     AppSearchInput
+  },
+  mounted() {
+
   }
 }
 </script>
