@@ -8,7 +8,7 @@
     <b-collapse id="nav-collapse" is-nav class="pt-1">
       <AppSearchInput/>
       <b-navbar-nav class="navbar-nav mb-3 mb-lg-0 ml-auto">
-        <b-nav-item v-for="tag of tags" :key="tag.slug" :to="`/tag/${tag.slug}`">
+        <b-nav-item v-for="tag of tags" :key="tag.slug" :to="`/tag/${tag.slug}`" class="centered">
           {{ tag.name }}
         </b-nav-item>
         <b-nav-item-dropdown text="DD Test" hidden>
