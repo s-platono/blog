@@ -5,7 +5,6 @@
       type="search"
       autocomplete="off"
       placeholder="Search articles"
-      size="sm"
       class="mr-sm-2 col-sm-12"
     />
     <b-nav-item-dropdown right
