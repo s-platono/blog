@@ -6,6 +6,9 @@ export default {
   head: {
     title: 'Senior Platono',
     meta: [
+      {
+        name: 'google-site-verification', content: '77qBeffz9yf3f50UxQ2bUcYsJmbqyOD6q5n1QRUbXNk'
+      },
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
