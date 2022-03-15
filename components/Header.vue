@@ -1,5 +1,5 @@
 <template>
-    <header id="main-header" role="banner" data-stellar-background-ratio="0.5">
+    <header>
       <Navbar :tags="tags"/>
     </header>
 </template>
