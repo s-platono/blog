@@ -18,7 +18,6 @@ export const actions = {
         let idx = authorRes.findIndex(x => x.name === author.name)
         if(idx <= -1) authorRes.push(author)
       })
-
     commit("setTags", tags)
     commit("setArticles", articles)
     commit("setAuthors", authorRes)
@@ -28,7 +27,18 @@ export const actions = {
 export const state = () => ({
   tags: [],
   articles: [],
-  authors: []
+  authors: [],
+  drawer: false,
+  items: [
+    {
+      text: 'Home',
+      href: '#!',
+    },
+    {
+      text: 'About',
+      href: '#about',
+    },
+  ],
 })
 
 export const mutations = {
@@ -40,7 +50,9 @@ export const mutations = {
   },
   setAuthors: (state, data) => {
     state.authors.push(...data)
-  }
+  },
+  setDrawer: (state, payload) => (state.drawer = payload),
+  toggleDrawer: state => (state.drawer = !state.drawer),
 }
 
 export const getters = {
@@ -50,5 +62,27 @@ export const getters = {
 
   article: s => slug => s.articles.filter(a => a.slug === slug)[0],
   tagList: s => tagList => s.tags.filter(t => tagList.includes(t.name)),
-  author: s => slug => s.authors.filter(t => t.slug === slug)[0]
+  author: s => slug => s.authors.filter(t => t.slug === slug)[0],
+  categories: state => {
+    const categories = []
+
+    for (const article of state.articles) {
+      if (
+        !article.category ||
+        categories.find(category => category.text === article.category)
+      ) continue
+
+      const text = article.category
+
+      categories.push({
+        text,
+        href: '#!',
+      })
+    }
+
+    return categories.sort().slice(0, 4)
+  },
+  links: (state, getters) => {
+    return state.items.concat(getters.categories)
+  },
 }

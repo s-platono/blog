@@ -10,7 +10,7 @@ export default {
         name: 'google-site-verification', content: '77qBeffz9yf3f50UxQ2bUcYsJmbqyOD6q5n1QRUbXNk'
       },
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width,initial-scale=1.0' },
       {
         hid: 'description',
         name: 'description',
@@ -37,14 +37,14 @@ export default {
         href: '/favicon-16x16.png'
       },
       {rel: 'manifest', href: '/site.webmanifest'},
+      {rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css'},
+      {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900'}
     ],
-    script: [
-
-    ]
+    script: []
   },
 
   css: [
-    { src: '~/assets/css/styles.scss', lang: 'scss'}
+    // { src: '~/assets/css/styles.scss', lang: 'scss'}
   ],
   loading: {
     color: 'DodgerBlue',
@@ -62,13 +62,13 @@ export default {
   buildModules: [
     '@nuxtjs/fontawesome',
     '@nuxtjs/style-resources',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-analytics',
+    // '@nuxtjs/vuetify',
+    '@nuxt/content',
   ],
 
   modules: [
-    // Doc: https://github.com/nuxt/content
-    '@nuxt/content',
-    'bootstrap-vue/nuxt'
+    '@nuxtjs/vuetify',
   ],
 
   content: {
@@ -80,7 +80,9 @@ export default {
     nestedProperties: ['author.name']
   },
 
-  build: {},
+  build: {
+
+  },
 
   fontawesome: {
     icons: {
@@ -89,9 +91,19 @@ export default {
     }
   },
   styleResources: {
-    scss: ['./assets/css/styles.scss']
+    // scss: ['./assets/css/styles.scss']
   },
   googleAnalytics: {
     id: 'G-Z0PKRYK0KZ'
+  },
+  vuetify: {
+    theme: {
+      themes: {
+        light: {
+          primary: '#CBAA5C',
+          secondary: '#083759',
+        },
+      },
+    },
   }
 }
