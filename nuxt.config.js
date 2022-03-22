@@ -47,7 +47,7 @@ export default {
     // { src: '~/assets/css/styles.scss', lang: 'scss'}
   ],
   loading: {
-    color: 'DodgerBlue',
+    color: '#083759',
     height: '10px',
     continuous: true,
     duration: 3000
@@ -63,7 +63,6 @@ export default {
     '@nuxtjs/fontawesome',
     '@nuxtjs/style-resources',
     '@nuxtjs/google-analytics',
-    // '@nuxtjs/vuetify',
     '@nuxt/content',
   ],
 

@@ -20,7 +20,7 @@
           class="fill-height text-right ma-0"
         >
           <v-col cols="12">
-            <v-chip v-for="tag in value.tags" :key="tag"
+            <v-chip v-for="tag in tags" :key="tag.slug"
                     label
                     class="mx-1 mb-2 text-uppercase"
                     color="grey darken-3"
@@ -29,7 +29,7 @@
                     @click.stop=""
                     :to="`/tag/${tag.slug}`"
             >
-              {{ tag }}
+              {{ tag.name }}
             </v-chip>
 
             <h3 class="title font-weight-bold mb-2">
@@ -59,6 +59,8 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+
 export default {
   name: 'FeedCard',
 
@@ -73,6 +75,15 @@ export default {
     },
   },
 
+  computed: {
+    ...mapGetters({
+      tagsList: 'tagList'
+    }),
+    tags() {
+      const list = this.tagsList(this.value.tags)
+      return Object.assign({}, ...list.map((s) => ({[s.name]: s})))
+    }
+  },
   methods: {
     formatDate(date) {
       const options = {year: 'numeric', month: 'long', day: 'numeric'}

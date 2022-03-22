@@ -1,33 +1,43 @@
 <template>
-  <article class="col-lg-8 offset-lg-2" style="background-color: #c7c7c7;">
-    <header>
-      {{ article.title }}
-      {{ article.author.name }}
-      {{ formatDate(article.createdAt) }}
+  <v-sheet elevation="2" class="mt-4">
+    <v-parallax :src="article.img" dark height="400">
+      <v-row align="center" justify="center">
+        <v-col class="text-center" cols="12">
+          <h1 class="text-h3 font-weight-bold mb-4">
+            {{ article.title }}
+          </h1>
+          <h4 class="subheading">
+            {{ article.author.name }}
+          </h4>
+          <h5 class="subheading">
+            {{ formatDate(article.createdAt) }}
+          </h5>
+        </v-col>
+      </v-row>
+    </v-parallax>
+    <main>
       <nav class="pb-6">
-        <ul>
-          <li v-for="link of article.toc" :key="link.id"
+      <ul>
+        <li v-for="link of article.toc" :key="link.id"
             :class="{
               'font-semibold': link.depth === 2
             }">
-            <nuxtLink :to="`#${link.id}`" class="hover:underline"
-              :class="{
+          <nuxtLink :to="`#${link.id}`" class="hover:underline"
+                    :class="{
                 'py-2': link.depth === 2,
                 'ml-2 pb-2': link.depth === 3
               }">
-              {{ link.text }}
-            </nuxtLink>
-          </li>
-        </ul>
+            {{ link.text }}
+          </nuxtLink>
+        </li>
+      </ul>
       </nav>
-    </header>
-    <main>
       <nuxt-content :document="article"/>
     </main>
-    <footer>
+<!--    <footer>
       <author :author="article.author"/>
-    </footer>
-  </article>
+    </footer>-->
+  </v-sheet>
 </template>
 <script>
 export default {
