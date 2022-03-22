@@ -32,11 +32,7 @@ export const state = () => ({
   items: [
     {
       text: 'Home',
-      href: '#!',
-    },
-    {
-      text: 'About',
-      href: '#about',
+      href: '/',
     },
   ],
 })
@@ -47,6 +43,7 @@ export const mutations = {
   },
   setArticles: (state, data) => {
     state.articles.push(...data)
+    state.articles.sort((a,b) => a.createdAt > b.createdAt ? 1 : a.createdAt === b.createdAt ? 0 : -1)
   },
   setAuthors: (state, data) => {
     state.authors.push(...data)
@@ -83,6 +80,6 @@ export const getters = {
     return categories.sort().slice(0, 4)
   },
   links: (state, getters) => {
-    return state.items.concat(getters.categories)
+    return state.items.concat(getters.tags)
   },
 }

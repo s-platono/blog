@@ -16,11 +16,11 @@
             square
             target="_blank"
           >
-            <v-icon v-text="item.icon" />
+            <v-icon v-text="item.icon"/>
           </base-btn>
         </v-col>
 
-        <v-spacer />
+        <v-spacer/>
 
         <base-btn
           class="mr-0"
@@ -36,40 +36,40 @@
 </template>
 
 <script>
-  export default {
-    name: 'CoreFooter',
+export default {
+  name: 'CoreFooter',
 
-    data: () => ({
-      items: [
-        {
-          href: '#!',
-          icon: 'mdi-twitter',
-        },
-        {
-          href: '#!',
-          icon: 'mdi-instagram',
-        },
-        {
-          href: '#!',
-          icon: 'mdi-facebook',
-        },
-        {
-          href: '#!',
-          icon: 'mdi-google-plus',
-        },
-        {
-          href: '#!',
-          icon: 'mdi-reddit',
-        },
-        {
-          href: '#!',
-          icon: 'mdi-discord',
-        },
-        {
-          href: '#!',
-          icon: 'mdi-pinterest',
-        },
-      ],
-    }),
-  }
+  data: () => ({
+    items: [
+      {
+        href: 'https://twitter.com/el_platono',
+        icon: 'mdi-twitter',
+      },
+      /*{
+        href: '#!',
+        icon: 'mdi-instagram',
+      },
+      {
+        href: '#!',
+        icon: 'mdi-facebook',
+      },
+      {
+        href: '#!',
+        icon: 'mdi-google-plus',
+      },
+      {
+        href: '#!',
+        icon: 'mdi-reddit',
+      },
+      {
+        href: '#!',
+        icon: 'mdi-discord',
+      },
+      {
+        href: '#!',
+        icon: 'mdi-pinterest',
+      },*/
+    ],
+  }),
+}
 </script>

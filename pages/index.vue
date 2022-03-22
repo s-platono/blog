@@ -1,13 +1,10 @@
 <template>
   <div class="">
     <articles>
-      <banner />
+<!--      <banner />-->
     </articles>
-
-    <about />
-
-    <subscribe />
-
+<!--    <about />-->
+<!--    <subscribe />-->
     <social />
   </div>
 <!--  <div class="col-lg-12 d-flex justify-content-between flex-wrap">

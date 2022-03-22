@@ -1,7 +1,7 @@
 <template>
-  <v-content id="home">
+  <v-main id="home">
     <Nuxt />
-  </v-content>
+  </v-main>
 </template>
 
 <script>

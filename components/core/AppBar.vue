@@ -10,25 +10,26 @@
 
     <v-container class="mx-auto py-0">
       <v-row align="center">
-        <v-img
-          :src="require('@/assets/logo.png')"
-          class="mr-5"
-          contain
-          height="48"
-          width="48"
-          max-width="48"
-          @click="$vuetify.goTo(0)"
-        />
+        <NuxtLink :to="`/`">
+          <v-img
+            :src="require('@/assets/logo.png')"
+            class="mr-5"
+            contain
+            height="48"
+            width="48"
+            max-width="48"
 
+          />
+        </NuxtLink>
         <v-btn
-          v-for="(link, i) in links"
+          v-for="(tag, i) in tags"
           :key="i"
-          v-bind="link"
+          v-bind="tag"
           class="hidden-sm-and-down"
           text
-          @click="onClick($event, link)"
+          :to="`/tag/${tag.slug}`"
         >
-          {{ link.text }}
+          {{ tag.name }}
         </v-btn>
 
         <v-spacer />
@@ -56,18 +57,11 @@
     name: 'CoreAppBar',
 
     computed: {
-      ...mapGetters(['links']),
+      ...mapGetters(['tags']),
     },
 
     methods: {
       ...mapMutations(['toggleDrawer']),
-      onClick (e, item) {
-        e.stopPropagation()
-
-        if (item.to || !item.href) return
-
-        this.$vuetify.goTo(item.href.endsWith('!') ? 0 : item.href)
-      },
     },
   }
 </script>

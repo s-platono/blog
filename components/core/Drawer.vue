@@ -7,13 +7,11 @@
   >
     <v-list>
       <v-list-item
-        v-for="(link, i) in links"
+        v-for="(tag, i) in tags"
         :key="i"
-        :to="link.to"
-        :href="link.href"
-        @click="onClick($event, link)"
+        :to="`/tag/${tag.slug}`"
       >
-        <v-list-item-title v-text="link.text" />
+        <v-list-item-title v-text="tag.name" class="v-btn"/>
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
@@ -30,7 +28,7 @@
     name: 'CoreDrawer',
 
     computed: {
-      ...mapGetters(['links']),
+      ...mapGetters(['tags']),
       drawer: {
         get () {
           return this.$store.state.drawer
@@ -43,7 +41,7 @@
 
     methods: {
       ...mapMutations(['setDrawer']),
-      onClick (e, item) {
+      /*onClick (e, item) {
         e.stopPropagation()
 
         if (item.to === '/') {
@@ -56,7 +54,7 @@
 
         this.$vuetify.goTo(item.href)
         this.setDrawer(false)
-      },
+      },*/
     },
   }
 </script>

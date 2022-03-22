@@ -25,7 +25,6 @@
 <script>
 export default {
   components: {
-    CoreCta: () => import('@/components/core/Cta'),
     CoreDrawer: () => import('@/components/core/Drawer'),
     CoreFooter: () => import('@/components/core/Footer'),
     CoreAppBar: () => import('@/components/core/AppBar'),

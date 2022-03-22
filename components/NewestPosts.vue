@@ -3,7 +3,7 @@
     <base-subheading>Newest Blog Posts</base-subheading>
 
     <v-row
-      v-for="(article, i) in articles.slice(11, 14)"
+      v-for="(article, i) in articles.slice(articles.length - 3, articles.length)"
       :key="i"
       align="center"
       class="mb-2"
@@ -13,7 +13,7 @@
         cols="12"
       >
         <v-img
-          :src="require(`@/assets/articles/${article.hero}`)"
+          :src="article.img"
           class="mr-3"
           height="36"
           max-width="36"
@@ -21,11 +21,11 @@
 
         <div>
           <div class="subheading">
-            Article Title
+            {{ article.title }}
           </div>
 
           <div class="caption">
-            Date
+            {{ formatDate(article.createdAt) }}
           </div>
         </div>
       </v-col>
@@ -35,13 +35,19 @@
 
 <script>
   // Utilities
-  import { mapState } from 'vuex'
+  import { mapGetters } from 'vuex'
 
   export default {
     name: 'NewestPosts',
 
     computed: {
-      ...mapState(['articles']),
+      ...mapGetters(['articles']),
     },
+    methods: {
+      formatDate(date) {
+        const options = {year: 'numeric', month: 'long', day: 'numeric'}
+        return new Date(date).toLocaleDateString('ru', options)
+      }
+    }
   }
 </script>

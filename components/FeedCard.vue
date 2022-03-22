@@ -7,7 +7,7 @@
       :height="value.prominent ? 450 : 350"
       color="grey lighten-1"
       dark
-      href="#!"
+      :to="{ name: 'article-slug', params: { slug: value.slug } }"
     >
       <!--        :src="require(`@/assets/articles/${value.img}`)"-->
       <v-img
@@ -20,15 +20,16 @@
           class="fill-height text-right ma-0"
         >
           <v-col cols="12">
-            <v-chip
-              label
-              class="mx-0 mb-2 text-uppercase"
-              color="grey darken-3"
-              text-color="white"
-              small
-              @click.stop=""
+            <v-chip v-for="tag in value.tags" :key="tag"
+                    label
+                    class="mx-1 mb-2 text-uppercase"
+                    color="grey darken-3"
+                    text-color="white"
+                    small
+                    @click.stop=""
+                    :to="`/tag/${tag.slug}`"
             >
-              {{ value.category }}
+              {{ tag }}
             </v-chip>
 
             <h3 class="title font-weight-bold mb-2">
@@ -46,7 +47,7 @@
               color="primary"
               label
               small
-              @click.stop=""
+              :to="{ name: 'article-slug', params: { slug: value.slug } }"
             >
               Read More
             </v-chip>
@@ -58,27 +59,27 @@
 </template>
 
 <script>
-  export default {
-    name: 'FeedCard',
+export default {
+  name: 'FeedCard',
 
-    props: {
-      size: {
-        type: Number,
-        required: true,
-      },
-      value: {
-        type: Object,
-        default: () => ({}),
-      },
+  props: {
+    size: {
+      type: Number,
+      required: true,
     },
+    value: {
+      type: Object,
+      default: () => ({}),
+    },
+  },
 
-    methods: {
-      formatDate(date) {
-        const options = {year: 'numeric', month: 'long', day: 'numeric'}
-        return new Date(date).toLocaleDateString('ru', options)
-      }
+  methods: {
+    formatDate(date) {
+      const options = {year: 'numeric', month: 'long', day: 'numeric'}
+      return new Date(date).toLocaleDateString('ru', options)
     }
   }
+}
 </script>
 
 <style>
