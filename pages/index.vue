@@ -1,25 +1,15 @@
 <template>
-  <div class="col-lg-12 d-flex justify-content-between flex-wrap">
-
-    <ArticleCard v-for="article of articles" :key="article.slug" :article="article" />
-    <!--    <h3 class="mb-4 font-bold text-2xl uppercase text-center">Topics</h3>-->
-    <!--    <ul class="flex flex-wrap mb-4 text-center">
-          <li
-            v-for="tag of tags"
-            :key="tag.slug"
-            class="xs:w-full md:w-1/3 lg:flex-1 px-2 text-center"
-          >
-            <NuxtLink :to="`/tag/${tag.slug}`" class="">
-              <p
-                class="font-bold text-gray-600 uppercase tracking-wider font-medium text-ss"
-              >
-                {{ tag.name }}
-              </p>
-            </NuxtLink>
-          </li>
-        </ul>-->
-
+  <div class="">
+    <articles>
+<!--      <banner />-->
+    </articles>
+<!--    <about />-->
+<!--    <subscribe />-->
+    <social />
   </div>
+<!--  <div class="col-lg-12 d-flex justify-content-between flex-wrap">
+    <ArticleCard v-for="article of articles" :key="article.slug" :article="article" />
+  </div>-->
 </template>
 
 <script>
@@ -29,7 +19,12 @@ import ArticleCard from '~/components/ArticleCard'
 
 export default {
   components: {
-    Header, ArticleCard
+    Header, ArticleCard,
+    About: () => import('@/components/home/About'),
+    Articles: () => import('@/components/home/Articles'),
+    Banner: () => import('@/components/home/Banner'),
+    Social: () => import('@/components/home/Social'),
+    Subscribe: () => import('@/components/home/Subscribe'),
   },
   computed: {
     ...mapGetters({

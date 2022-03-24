@@ -1,33 +1,43 @@
 <template>
-  <article class="col-lg-8 offset-lg-2" style="background-color: #c7c7c7;">
-    <header>
-      {{ article.title }}
-      {{ article.author.name }}
-      {{ formatDate(article.createdAt) }}
+  <v-sheet elevation="2" class="mt-4">
+    <v-parallax :src="article.img" dark height="400">
+      <v-row align="center" justify="center">
+        <v-col class="text-center" cols="12">
+          <h1 class="text-h3 font-weight-bold mb-4">
+            {{ article.title }}
+          </h1>
+          <h4 class="subheading">
+            {{ article.author.name }}
+          </h4>
+          <h5 class="subheading">
+            {{ formatDate(article.createdAt) }}
+          </h5>
+        </v-col>
+      </v-row>
+    </v-parallax>
+    <div class="mx-auto col-10 ">
       <nav class="pb-6">
-        <ul>
-          <li v-for="link of article.toc" :key="link.id"
+      <ul>
+        <li v-for="link of article.toc" :key="link.id"
             :class="{
               'font-semibold': link.depth === 2
             }">
-            <nuxtLink :to="`#${link.id}`" class="hover:underline"
-              :class="{
+          <nuxtLink :to="`#${link.id}`" class="hover:underline"
+                    :class="{
                 'py-2': link.depth === 2,
                 'ml-2 pb-2': link.depth === 3
               }">
-              {{ link.text }}
-            </nuxtLink>
-          </li>
-        </ul>
+            {{ link.text }}
+          </nuxtLink>
+        </li>
+      </ul>
       </nav>
-    </header>
-    <main>
       <nuxt-content :document="article"/>
-    </main>
-    <footer>
+    </div>
+<!--    <footer>
       <author :author="article.author"/>
-    </footer>
-  </article>
+    </footer>-->
+  </v-sheet>
 </template>
 <script>
 export default {
@@ -54,7 +64,36 @@ export default {
   },
   head() {
     return {
-      title: this.article.title
+      title: this.article.title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.article.description
+        },
+        // Open Graph
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: this.article.title
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: this.article.description
+        },
+        // // Twitter Card
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: this.article.title
+        },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: this.article.description
+        }
+      ]
     }
   },
   methods: {
@@ -66,7 +105,7 @@ export default {
 }
 </script>
 <style>
-.nuxt-content p {
+/*.nuxt-content p {
   margin-bottom: 20px;
 }
 
@@ -78,13 +117,13 @@ export default {
 .nuxt-content h3 {
   font-weight: bold;
   font-size: 22px;
-}
+}*/
 
-.icon.icon-link {
+/*.icon.icon-link {
   background-image: url('~assets/svg/icon-hashtag.svg');
   display: inline-block;
   width: 20px;
   height: 20px;
   background-size: 20px 20px;
-}
+}*/
 </style>

@@ -1,12 +1,12 @@
 <template>
-  <b-navbar toggleable="lg" type="light" variant="light" fixed="top" class="py-2 col-lg-10 offset-lg-1 navigation" id="nav" >
+<!--  <b-navbar toggleable="lg" type="light" variant="light" fixed="top" class="py-2 col-lg-10 offset-lg-1 navigation" id="nav" >
     <NuxtLink to="/" class="navbar-brand">
-      <!--      <Logo class="mb-4"/>-->
+      &lt;!&ndash;      <Logo class="mb-4"/>&ndash;&gt;
       Senior Platono
     </NuxtLink>
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
     <b-collapse id="nav-collapse" is-nav class="pt-1">
-      <!--      <AppSearchInput/>-->
+      &lt;!&ndash;      <AppSearchInput/>&ndash;&gt;
       <b-navbar-nav class="navbar-nav mb-3 mb-lg-0 ml-auto">
         <b-nav-item v-for="tag of tags" :key="tag.slug" :to="`/tag/${tag.slug}`" class="centered">
           {{ tag.name }}
@@ -17,7 +17,28 @@
         </b-nav-item-dropdown>
       </b-navbar-nav>
     </b-collapse>
-  </b-navbar>
+  </b-navbar>-->
+  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bulma.io">
+        <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <NuxtLink v-for="tag of tags" :key="tag.slug" class="navbar-item" :to="`/tag/${tag.slug}`">
+          {{ tag.name }}
+        </NuxtLink>
+      </div>
+    </div>
+  </nav>
 </template>
 <script>
 import AppSearchInput from "~/components/AppSearchInput";
@@ -64,46 +85,5 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@500&display=swap');
 
-.navigation {
-  border-bottom: 1px solid $brand-secondary;
-  transition: all 0.5s;
-}
-
-.navbar li {
-  padding-right: 20px;
-}
-
-.nav-link {
-  font-size: 1.1em;
-  text-transform: uppercase;
-  color: $brand-darker;
-}
-
-.navbar-brand {
-  font-weight: bolder;
-  font-size: 2rem;
-  line-height: 2.4rem;
-  color: $brand-primary!important;
-}
-
-nav.shrink {
-  padding: 0 1rem;
-  box-sizing: border-box;
-  border: none;
-
-  .nav-link {
-    font-size: .8em;
-    text-transform: uppercase;
-    color: $brand-white;
-  }
-
-  .navbar-brand {
-    font-weight: bolder;
-    font-size: 1.5rem;
-    line-height: 2.4rem;
-    color: $brand-white!important;
-  }
-}
 </style>

@@ -10,6 +10,7 @@ author:
 tags: 
   - javascript
   - web development
+  - java
 ---
 
 ## Welcome to my third blog post using content module
