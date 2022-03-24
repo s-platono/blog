@@ -15,7 +15,7 @@
         </v-col>
       </v-row>
     </v-parallax>
-    <main>
+    <div class="mx-auto col-10 ">
       <nav class="pb-6">
       <ul>
         <li v-for="link of article.toc" :key="link.id"
@@ -33,7 +33,7 @@
       </ul>
       </nav>
       <nuxt-content :document="article"/>
-    </main>
+    </div>
 <!--    <footer>
       <author :author="article.author"/>
     </footer>-->
@@ -64,7 +64,36 @@ export default {
   },
   head() {
     return {
-      title: this.article.title
+      title: this.article.title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.article.description
+        },
+        // Open Graph
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: this.article.title
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: this.article.description
+        },
+        // // Twitter Card
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: this.article.title
+        },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: this.article.description
+        }
+      ]
     }
   },
   methods: {
@@ -76,7 +105,7 @@ export default {
 }
 </script>
 <style>
-.nuxt-content p {
+/*.nuxt-content p {
   margin-bottom: 20px;
 }
 
@@ -88,13 +117,13 @@ export default {
 .nuxt-content h3 {
   font-weight: bold;
   font-size: 22px;
-}
+}*/
 
-.icon.icon-link {
+/*.icon.icon-link {
   background-image: url('~assets/svg/icon-hashtag.svg');
   display: inline-block;
   width: 20px;
   height: 20px;
   background-size: 20px 20px;
-}
+}*/
 </style>

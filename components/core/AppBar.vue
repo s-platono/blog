@@ -40,6 +40,7 @@
           hide-details
           solo-inverted
           style="max-width: 300px;"
+          class="col-9 col-md-2"
         />
       </v-row>
     </v-container>
