@@ -15,23 +15,9 @@
         </v-col>
       </v-row>
     </v-parallax>
-    <div class="mx-auto col-10 ">
-      <nav class="pb-6">
-      <ul>
-        <li v-for="link of article.toc" :key="link.id"
-            :class="{
-              'font-semibold': link.depth === 2
-            }">
-          <nuxtLink :to="`#${link.id}`" class="hover:underline"
-                    :class="{
-                'py-2': link.depth === 2,
-                'ml-2 pb-2': link.depth === 3
-              }">
-            {{ link.text }}
-          </nuxtLink>
-        </li>
-      </ul>
-      </nav>
+    <div class="mx-auto col-10">
+      <article-header :toc="article.tableOfContent" class="mb-2"/>
+      <v-divider class="mb-2"></v-divider>
       <nuxt-content :document="article"/>
     </div>
 <!--    <footer>
@@ -41,9 +27,27 @@
 </template>
 <script>
 export default {
+  components: {
+    ArticleHeader: () => import('~/components/core/article/Header'),
+  },
   async asyncData({$content, params, store}) {
     // const article = await $content('articles', params.slug).fetch()
     const article = store.getters.article(params.slug)
+
+    let lastParent = 0
+    let result = []
+    for (let key in article.toc) {
+      let link = article.toc[key]
+      if(link.depth === 2) {
+        link.child = []
+        lastParent = result.push(link) - 1
+      } else {
+        result[lastParent].child.push(link)
+      }
+    }
+    article.tableOfContent = result
+
+
     /* const tagsList = await $content('tags')
        .only(['name', 'slug'])
        .where({ name: { $containsAny: article.tags } })
@@ -100,6 +104,9 @@ export default {
     formatDate(date) {
       const options = {year: 'numeric', month: 'long', day: 'numeric'}
       return new Date(date).toLocaleDateString('ru', options)
+    },
+    modifyToc(article) {
+
     }
   }
 }
