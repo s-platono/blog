@@ -1,6 +1,6 @@
 <template>
   <v-list>
-    <v-list-group :value="true" prepend-icon="mdi-format-list-bulleted-square">
+    <v-list-group prepend-icon="mdi-format-list-bulleted-square">
       <template v-slot:activator>
         <v-list-item-title>Table of content</v-list-item-title>
       </template>
