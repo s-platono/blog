@@ -13,46 +13,11 @@
       />
     </v-row>
 
-    <v-row align="center">
-      <v-col cols="3">
-        <base-btn
-          v-if="page !== 1"
-          class="ml-0"
-          square
-          title="Previous page"
-          @click="page--"
-        >
-          <v-icon>mdi-chevron-left</v-icon>
-        </base-btn>
-      </v-col>
-
-      <v-col
-        class="text-center subheading"
-        cols="6"
-      >
-        PAGE {{ page }} OF {{ pages }}
-      </v-col>
-
-      <v-col
-        class="text-right"
-        cols="3"
-      >
-        <base-btn
-          v-if="pages > 1 && page < pages"
-          class="mr-0"
-          square
-          title="Next page"
-          @click="page++"
-        >
-          <v-icon>mdi-chevron-right</v-icon>
-        </base-btn>
-      </v-col>
-    </v-row>
+    <Pagination v-model="page" />
   </v-container>
 </template>
 
 <script>
-// Utilities
 import {mapGetters} from 'vuex'
 
 export default {
@@ -60,6 +25,10 @@ export default {
 
   components: {
     FeedCard: () => import('@/components/FeedCard'),
+    Pagination: () => import('@/components/core/Pagination'),
+  },
+
+  asyncData({$content, params, store}) {
   },
 
   data: () => ({

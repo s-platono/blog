@@ -16,7 +16,7 @@ export const actions = {
     authors.map(it => it.author)
       .filter(author => {
         let idx = authorRes.findIndex(x => x.name === author.name)
-        if(idx <= -1) authorRes.push(author)
+        if (idx <= -1) authorRes.push(author)
       })
     commit("setTags", tags)
     commit("setArticles", articles)
@@ -43,7 +43,7 @@ export const mutations = {
   },
   setArticles: (state, data) => {
     state.articles.push(...data)
-    state.articles.sort((a,b) => a.createdAt > b.createdAt ? 1 : a.createdAt === b.createdAt ? 0 : -1)
+    state.articles.sort((a, b) => a.createdAt > b.createdAt ? 1 : a.createdAt === b.createdAt ? 0 : -1)
   },
   setAuthors: (state, data) => {
     state.authors.push(...data)
@@ -60,26 +60,6 @@ export const getters = {
   article: s => slug => s.articles.filter(a => a.slug === slug)[0],
   tagList: s => tagList => s.tags.filter(t => tagList.includes(t.name)),
   author: s => slug => s.authors.filter(t => t.slug === slug)[0],
-  categories: state => {
-    const categories = []
-
-    for (const article of state.articles) {
-      if (
-        !article.category ||
-        categories.find(category => category.text === article.category)
-      ) continue
-
-      const text = article.category
-
-      categories.push({
-        text,
-        href: '#!',
-      })
-    }
-
-    return categories.sort().slice(0, 4)
-  },
-  links: (state, getters) => {
-    return state.items.concat(getters.tags)
-  },
+  links: (state, getters) => state.items.concat(getters.tags),
+  paginatedPages: (state, page) => state.articles.slice((page - 1) * 11, page * 11)
 }

@@ -5,11 +5,8 @@
     </articles>
 <!--    <about />-->
 <!--    <subscribe />-->
-    <social />
+
   </div>
-<!--  <div class="col-lg-12 d-flex justify-content-between flex-wrap">
-    <ArticleCard v-for="article of articles" :key="article.slug" :article="article" />
-  </div>-->
 </template>
 
 <script>
@@ -23,14 +20,7 @@ export default {
     About: () => import('@/components/home/About'),
     Articles: () => import('@/components/home/Articles'),
     Banner: () => import('@/components/home/Banner'),
-    Social: () => import('@/components/home/Social'),
     Subscribe: () => import('@/components/home/Subscribe'),
-  },
-  computed: {
-    ...mapGetters({
-      tags: 'tags',
-      articles: 'articles'
-    })
   },
   /*async asyncData({$content, params}) {
     const articles = await $content('articles')
