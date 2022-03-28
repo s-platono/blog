@@ -13,7 +13,7 @@
       />
     </v-row>
 
-    <Pagination :page="page" />
+    <Pagination :page="page" :pages="pages"/>
   </v-container>
 </template>
 
