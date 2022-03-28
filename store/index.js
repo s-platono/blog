@@ -61,5 +61,5 @@ export const getters = {
   tagList: s => tagList => s.tags.filter(t => tagList.includes(t.name)),
   author: s => slug => s.authors.filter(t => t.slug === slug)[0],
   links: (state, getters) => state.items.concat(getters.tags),
-  paginatedPages: (state, page) => state.articles.slice((page - 1) * 11, page * 11)
+  paginatedPages: state => page => state.articles.slice((page - 1) * 11, page * 11)
 }

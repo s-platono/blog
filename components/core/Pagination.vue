@@ -42,7 +42,7 @@ export default {
   props: ['page', 'pages'],
   computed: {
     totalPages() {
-      return Math.ceil(this.total / 10);
+      return Math.ceil(this.pages / 10);
     },
     currentPage() {
       return parseInt(this.$route.params.page) || 1;

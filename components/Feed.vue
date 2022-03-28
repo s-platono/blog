@@ -6,14 +6,14 @@
       </v-col>
 
       <feed-card
-        v-for="(article, i) in paginatedArticles"
+        v-for="(article, i) in articles"
         :key="article.title"
         :size="layout[i]"
         :value="article"
       />
     </v-row>
 
-    <Pagination v-model="page" />
+    <Pagination :page="page" />
   </v-container>
 </template>
 
@@ -35,9 +35,10 @@ export default {
     layout: [2, 2, 1, 2, 2, 3, 3, 3, 3, 3, 3],
     page: 1,
   }),
+  props: ['articles'],
 
   computed: {
-    ...mapGetters(['articles']),
+    // ...mapGetters(['articles']),
     pages() {
       return Math.ceil(this.articles.length / 11)
     },

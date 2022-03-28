@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <articles>
+    <articles :articles="articles">
 <!--      <banner />-->
     </articles>
 <!--    <about />-->
@@ -22,20 +22,20 @@ export default {
     Banner: () => import('@/components/home/Banner'),
     Subscribe: () => import('@/components/home/Subscribe'),
   },
-  /*async asyncData({$content, params}) {
-    const articles = await $content('articles')
+  async asyncData({store, params}) {
+    const articles = store.getters.paginatedPages(1)
+      /*await $content('articles')
       .only(['title', 'description', 'img', 'slug', 'author'])
       .sortBy('createdAt', 'desc')
       .fetch()
     const tags = await $content('tags')
       .only(['name', 'description', 'img', 'slug'])
       .sortBy('createdAt', 'asc')
-      .fetch()
+      .fetch()*/
     return {
       articles,
-      tags
     }
-  }*/
+  }
 
 }
 </script>
