@@ -164,7 +164,7 @@ export default {
           title: article.title,
           id: url,
           link: url,
-          date: new Date(article.published),
+          date: new Date(article.createdAt),
           description: article.description,
           content: article.description,
           author: global.twitterHandle,
