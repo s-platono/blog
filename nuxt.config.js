@@ -1,11 +1,22 @@
+import global from './utils/global';
+import getRoutes from './utils/getRoutes';
+import getSiteMeta from './utils/getSiteMeta';
+
+const meta = getSiteMeta();
+
 export default {
   target: 'static',
   // router: {
   //   base: '/blog/'
   // },
   head: {
-    title: 'Senior Platono',
+    title: 'El Platono',
+    htmlAttrs: {
+      lang: 'ru-RU',
+      // class: 'bg-black',
+    },
     meta: [
+      ...meta,
       {
         name: 'google-site-verification', content: '77qBeffz9yf3f50UxQ2bUcYsJmbqyOD6q5n1QRUbXNk'
       },
@@ -14,8 +25,18 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+        content: global.siteDesc || '',
+      },
+      { property: 'og:site_name', content: global.siteName || '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: global.siteDesc || '',
+      },
+      { property: 'og:image:width', content: '740' },
+      { property: 'og:image:height', content: '300' },
+      { name: 'twitter:site', content: global.siteName || '' },
+      { name: 'twitter:card', content: 'summary_large_image' },
     ],
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
@@ -38,7 +59,12 @@ export default {
       },
       {rel: 'manifest', href: '/site.webmanifest'},
       {rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css'},
-      {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900'}
+      {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900'},
+      {
+        hid: 'canonical',
+        rel: 'canonical',
+        href: global.siteUrl,
+      },
     ],
     script: []
   },
@@ -63,11 +89,13 @@ export default {
     '@nuxtjs/fontawesome',
     '@nuxtjs/style-resources',
     '@nuxtjs/google-analytics',
-    '@nuxt/content',
   ],
 
   modules: [
+    '@nuxt/content',
     '@nuxtjs/vuetify',
+    '@nuxtjs/feed',
+    '@nuxtjs/sitemap',
   ],
 
   content: {
@@ -79,9 +107,7 @@ export default {
     nestedProperties: ['author.name']
   },
 
-  build: {
-
-  },
+  build: {},
 
   fontawesome: {
     icons: {
@@ -104,5 +130,52 @@ export default {
         },
       },
     },
-  }
+  },
+
+  sitemap: {
+    hostname: global.siteUrl,
+    routes() {
+      return getRoutes();
+    },
+  },
+
+  // RSS Feed Configuration (https://github.com/nuxt-community/feed-module)
+  feed() {
+    const baseUrlArticles = `${global.siteUrl}/articles`;
+    const baseLinkFeedArticles = '/articles';
+    const feedFormats = {
+      rss: { type: 'rss2', file: 'rss.xml' },
+      json: { type: 'json1', file: 'feed.json' },
+    };
+    const { $content } = require('@nuxt/content');
+
+    const createFeedArticles = async function (feed) {
+      feed.options = {
+        title: global.siteName || '',
+        description: global.siteDesc || '',
+        link: baseUrlArticles,
+      };
+      const articles = await $content('articles').fetch();
+
+      articles.forEach((article) => {
+        const url = `${baseUrlArticles}/${article.slug}`;
+
+        feed.addItem({
+          title: article.title,
+          id: url,
+          link: url,
+          date: new Date(article.published),
+          description: article.description,
+          content: article.description,
+          author: global.twitterHandle,
+        });
+      });
+    };
+
+    return Object.values(feedFormats).map(({ file, type }) => ({
+      path: `${baseLinkFeedArticles}/${file}`,
+      type,
+      create: createFeedArticles,
+    }));
+  },
 }

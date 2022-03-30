@@ -15,7 +15,19 @@ export default {
     return {
       articles
     }
-  }
+  },
+  head() {
+    return {
+      title: `Articles Page ${this.$route.params.page} `, //todo - change title for page
+      link: [
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: `${this.$config.baseUrl}/articles/page/${this.$route.params.page}`,
+        },
+      ],
+    };
+  },
 }
 </script>
 
