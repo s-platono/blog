@@ -35,12 +35,12 @@ export default {
     layout: [2, 2, 1, 2, 2, 3, 3, 3, 3, 3, 3],
     page: 1,
   }),
-  props: ['articles'],
+  props: ['articles', 'total'],
 
   computed: {
     // ...mapGetters(['articles']),
     pages() {
-      return Math.ceil(this.articles.length / 11)
+      return Math.ceil(this.total.length / 11)
     },
     paginatedArticles() {
       const start = (this.page - 1) * 11

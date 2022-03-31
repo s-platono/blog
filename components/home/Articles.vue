@@ -1,6 +1,6 @@
 <template>
   <section id="feed">
-    <feed :articles="articles">
+    <feed :articles="articles" :total="total">
       <slot />
     </feed>
   </section>
@@ -8,12 +8,12 @@
 
 <script>
   export default {
-    name: 'HomeAbout',
+    name: 'Articles',
 
     components: {
       Feed: () => import('@/components/Feed'),
     },
 
-    props: ['articles']
+    props: ['articles', 'total']
   }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <articles :articles="articles">
+    <articles :articles="articles" :total="total">
 <!--      <banner />-->
     </articles>
 <!--    <about />-->
@@ -10,20 +10,17 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
-import Header from "~/components/Header";
-import ArticleCard from '~/components/ArticleCard'
+import getContent from '@/utils/getContent';
 
 export default {
   components: {
-    Header, ArticleCard,
     About: () => import('@/components/home/About'),
     Articles: () => import('@/components/home/Articles'),
     Banner: () => import('@/components/home/Banner'),
     Subscribe: () => import('@/components/home/Subscribe'),
   },
-  async asyncData({store, params}) {
-    const articles = store.getters.paginatedPages(1)
+  async asyncData({ $content, app, params, error }) {
+    const content = await getContent($content, params, error)
       /*await $content('articles')
       .only(['title', 'description', 'img', 'slug', 'author'])
       .sortBy('createdAt', 'desc')
@@ -33,7 +30,8 @@ export default {
       .sortBy('createdAt', 'asc')
       .fetch()*/
     return {
-      articles,
+      total: content.allArticles,
+      articles: content.paginatedArticles,
     }
   },
 }

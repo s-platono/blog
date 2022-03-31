@@ -25,8 +25,8 @@ export default async ($content, params, error) => {
   };
 
   const paginatedArticles = await $content('articles')
-    .only(['title', 'description', 'image', 'slug', 'published'])
-    .sortBy('published', 'desc')
+    // .only(['title', 'description', 'image', 'slug', 'published'])
+    .sortBy('createdAt', 'desc')
     .limit(perPage)
     .skip(skipNumber())
     .fetch();
