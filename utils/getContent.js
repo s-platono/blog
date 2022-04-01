@@ -2,7 +2,7 @@ export default async ($content, params, error) => {
   const currentPage = parseInt(params.page);
 
   // Set how many articles to show per page
-  const perPage = 5;
+  const perPage = 11;
 
   const allArticles = await $content('articles').fetch();
 
@@ -25,7 +25,7 @@ export default async ($content, params, error) => {
   };
 
   const paginatedArticles = await $content('articles')
-    // .only(['title', 'description', 'image', 'slug', 'published'])
+    .only(['title', 'description', 'img', 'slug', 'tags', 'createdAt', 'author'])
     .sortBy('createdAt', 'desc')
     .limit(perPage)
     .skip(skipNumber())
