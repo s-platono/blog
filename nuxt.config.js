@@ -141,8 +141,8 @@ export default {
 
   // RSS Feed Configuration (https://github.com/nuxt-community/feed-module)
   feed() {
-    const baseUrlArticles = `${global.siteUrl}/articles`;
-    const baseLinkFeedArticles = '/articles';
+    const baseUrlArticles = `${global.siteUrl}/article`;
+    const baseLinkFeedArticles = '/article';
     const feedFormats = {
       rss: { type: 'rss2', file: 'rss.xml' },
       json: { type: 'json1', file: 'feed.json' },
