@@ -18,6 +18,7 @@
       <core-app-bar/>
       <core-drawer/>
       <core-view/>
+      <social />
       <core-footer/>
     </div>
   </div>
@@ -29,6 +30,7 @@ export default {
     CoreFooter: () => import('@/components/core/Footer'),
     CoreAppBar: () => import('@/components/core/AppBar'),
     CoreView: () => import('@/components/core/View'),
+    Social: () => import('@/components/home/Social'),
   },
 }
 </script>

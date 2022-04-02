@@ -6,53 +6,18 @@
       </v-col>
 
       <feed-card
-        v-for="(article, i) in paginatedArticles"
+        v-for="(article, i) in articles"
         :key="article.title"
         :size="layout[i]"
         :value="article"
       />
     </v-row>
 
-    <v-row align="center">
-      <v-col cols="3">
-        <base-btn
-          v-if="page !== 1"
-          class="ml-0"
-          square
-          title="Previous page"
-          @click="page--"
-        >
-          <v-icon>mdi-chevron-left</v-icon>
-        </base-btn>
-      </v-col>
-
-      <v-col
-        class="text-center subheading"
-        cols="6"
-      >
-        PAGE {{ page }} OF {{ pages }}
-      </v-col>
-
-      <v-col
-        class="text-right"
-        cols="3"
-      >
-        <base-btn
-          v-if="pages > 1 && page < pages"
-          class="mr-0"
-          square
-          title="Next page"
-          @click="page++"
-        >
-          <v-icon>mdi-chevron-right</v-icon>
-        </base-btn>
-      </v-col>
-    </v-row>
+    <Pagination :page="page" :pages="pages"/>
   </v-container>
 </template>
 
 <script>
-// Utilities
 import {mapGetters} from 'vuex'
 
 export default {
@@ -60,17 +25,22 @@ export default {
 
   components: {
     FeedCard: () => import('@/components/FeedCard'),
+    Pagination: () => import('@/components/core/Pagination'),
+  },
+
+  asyncData({$content, params, store}) {
   },
 
   data: () => ({
     layout: [2, 2, 1, 2, 2, 3, 3, 3, 3, 3, 3],
     page: 1,
   }),
+  props: ['articles', 'total'],
 
   computed: {
-    ...mapGetters(['articles']),
+    // ...mapGetters(['articles']),
     pages() {
-      return Math.ceil(this.articles.length / 11)
+      return Math.ceil(this.total.length / 5)
     },
     paginatedArticles() {
       const start = (this.page - 1) * 11
