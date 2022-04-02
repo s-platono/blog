@@ -1,5 +1,5 @@
 <template>
-  <v-row align="center">
+  <v-row align="center" v-if="pages > 1">
     <v-col cols="3">
       <base-btn
         v-if="currentPage !== 1"
@@ -43,7 +43,7 @@ export default {
   computed: {
     totalPages() {
       console.log(this.pages)
-      return Math.ceil(this.pages / 5);
+      return Math.ceil(this.pages / 11);
     },
     currentPage() {
       return parseInt(this.$route.params.page) || 1;
