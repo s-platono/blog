@@ -8,7 +8,6 @@
 import getContent from "~/utils/getContent";
 
 export default {
-  name: "_page",
   components: {
     Articles: () => import('@/components/home/Articles'),
   },
