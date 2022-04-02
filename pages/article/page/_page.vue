@@ -28,7 +28,7 @@ export default {
   },
   head() {
     return {
-      title: `Articles Page ${this.$route.params.page} `, //todo - change title for page
+      // title: `Articles Page ${this.$route.params.page} `, //todo - change title for page
       link: [
         {
           hid: 'canonical',
