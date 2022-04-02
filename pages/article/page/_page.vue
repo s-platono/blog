@@ -1,19 +1,30 @@
 <template>
-  <articles :articles="articles">
+  <articles :articles="articles" :total="total">
 
   </articles>
 </template>
 
 <script>
+import getContent from "~/utils/getContent";
+
 export default {
   name: "_page",
   components: {
     Articles: () => import('@/components/home/Articles'),
   },
-  asyncData(ctx) {
-    let articles = ctx.store.getters.paginatedPages(ctx.params.page);
+  async asyncData({ $content, app, params, error }) {
+    const content = await getContent($content, params, error)
+    /*await $content('articles')
+    .only(['title', 'description', 'img', 'slug', 'author'])
+    .sortBy('createdAt', 'desc')
+    .fetch()
+  const tags = await $content('tags')
+    .only(['name', 'description', 'img', 'slug'])
+    .sortBy('createdAt', 'asc')
+    .fetch()*/
     return {
-      articles
+      total: content.allArticles,
+      articles: content.paginatedArticles,
     }
   },
   head() {

@@ -2,7 +2,7 @@ export default async ($content, params, error) => {
   const currentPage = parseInt(params.page);
 
   // Set how many articles to show per page
-  const perPage = 11;
+  const perPage = 5;
 
   const allArticles = await $content('articles').fetch();
 

@@ -40,7 +40,7 @@ export default {
   computed: {
     // ...mapGetters(['articles']),
     pages() {
-      return Math.ceil(this.total.length / 11)
+      return Math.ceil(this.total.length / 5)
     },
     paginatedArticles() {
       const start = (this.page - 1) * 11
