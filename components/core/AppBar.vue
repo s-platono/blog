@@ -1,12 +1,6 @@
 <template>
-  <v-app-bar
-    app
-    flat
-  >
-    <v-app-bar-nav-icon
-      class="hidden-md-and-up"
-      @click="toggleDrawer"
-    />
+  <v-app-bar app flat>
+    <v-app-bar-nav-icon class="hidden-md-and-up" @click="toggleDrawer"/>
 
     <v-container class="mx-auto py-0">
       <v-row align="center">
@@ -40,7 +34,7 @@
           hide-details
           solo-inverted
           style="max-width: 300px;"
-          class="col-9 col-md-2"
+          class="col-9 col-md-2 col-sm-2"
         />
       </v-row>
     </v-container>
