@@ -4,14 +4,14 @@
         <title>El Platono blog</title>
         <link>https://el-platono.github.io//article</link>
         <description>A description for your site here, this will show on the home page.</description>
-        <lastBuildDate>Sun, 03 Apr 2022 12:06:40 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 03 Apr 2022 20:24:05 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/nuxt-community/feed-module</generator>
         <item>
             <title><![CDATA[Моя статья]]></title>
             <link>https://el-platono.github.io//article/article-about-me</link>
             <guid>https://el-platono.github.io//article/article-about-me</guid>
-            <pubDate>Sun, 03 Apr 2022 12:05:22 GMT</pubDate>
+            <pubDate>Sun, 03 Apr 2022 20:22:26 GMT</pubDate>
             <description><![CDATA[This is a description for the article about me]]></description>
             <content:encoded><![CDATA[This is a description for the article about me]]></content:encoded>
         </item>
@@ -19,7 +19,7 @@
             <title><![CDATA[Great Article]]></title>
             <link>https://el-platono.github.io//article/great-article</link>
             <guid>https://el-platono.github.io//article/great-article</guid>
-            <pubDate>Sun, 03 Apr 2022 12:05:22 GMT</pubDate>
+            <pubDate>Sun, 03 Apr 2022 20:22:26 GMT</pubDate>
             <description><![CDATA[I am a description of a great article]]></description>
             <content:encoded><![CDATA[I am a description of a great article]]></content:encoded>
         </item>
@@ -27,7 +27,7 @@
             <title><![CDATA[Into the unknown]]></title>
             <link>https://el-platono.github.io//article/into-the-unknown</link>
             <guid>https://el-platono.github.io//article/into-the-unknown</guid>
-            <pubDate>Sun, 03 Apr 2022 12:05:22 GMT</pubDate>
+            <pubDate>Sun, 03 Apr 2022 20:22:26 GMT</pubDate>
             <description><![CDATA[This is a description for this article which describes what it is about]]></description>
             <content:encoded><![CDATA[This is a description for this article which describes what it is about]]></content:encoded>
         </item>
@@ -35,7 +35,7 @@
             <title><![CDATA[My favorite Blog Post]]></title>
             <link>https://el-platono.github.io//article/my-favoutie-blog-post</link>
             <guid>https://el-platono.github.io//article/my-favoutie-blog-post</guid>
-            <pubDate>Sun, 03 Apr 2022 12:05:22 GMT</pubDate>
+            <pubDate>Sun, 03 Apr 2022 20:22:26 GMT</pubDate>
             <description><![CDATA[This is a description for a blog post]]></description>
             <content:encoded><![CDATA[This is a description for a blog post]]></content:encoded>
         </item>
@@ -43,7 +43,7 @@
             <title><![CDATA[My First Blog Post]]></title>
             <link>https://el-platono.github.io//article/my-first-blog-post</link>
             <guid>https://el-platono.github.io//article/my-first-blog-post</guid>
-            <pubDate>Sun, 03 Apr 2022 12:05:22 GMT</pubDate>
+            <pubDate>Sun, 03 Apr 2022 20:22:26 GMT</pubDate>
             <description><![CDATA[Learning how to use @nuxt/content to create a blog]]></description>
             <content:encoded><![CDATA[Learning how to use @nuxt/content to create a blog]]></content:encoded>
         </item>
@@ -51,7 +51,7 @@
             <title><![CDATA[My Second Blog Post]]></title>
             <link>https://el-platono.github.io//article/my-second-post</link>
             <guid>https://el-platono.github.io//article/my-second-post</guid>
-            <pubDate>Sun, 03 Apr 2022 12:05:22 GMT</pubDate>
+            <pubDate>Sun, 03 Apr 2022 20:22:26 GMT</pubDate>
             <description><![CDATA[Learning how to use @nuxt/content to create a blog]]></description>
             <content:encoded><![CDATA[Learning how to use @nuxt/content to create a blog]]></content:encoded>
         </item>
@@ -59,7 +59,7 @@
             <title><![CDATA[My Third Blog Post]]></title>
             <link>https://el-platono.github.io//article/my-third-blog-post</link>
             <guid>https://el-platono.github.io//article/my-third-blog-post</guid>
-            <pubDate>Sun, 03 Apr 2022 12:05:22 GMT</pubDate>
+            <pubDate>Sun, 03 Apr 2022 20:22:26 GMT</pubDate>
             <description><![CDATA[Learning how to use @nuxt/content to create a blog]]></description>
             <content:encoded><![CDATA[Learning how to use @nuxt/content to create a blog]]></content:encoded>
         </item>
@@ -67,7 +67,7 @@
             <title><![CDATA[Some Interesting title]]></title>
             <link>https://el-platono.github.io//article/some-interesting-title</link>
             <guid>https://el-platono.github.io//article/some-interesting-title</guid>
-            <pubDate>Sun, 03 Apr 2022 12:05:22 GMT</pubDate>
+            <pubDate>Sun, 03 Apr 2022 20:22:26 GMT</pubDate>
             <description><![CDATA[Learning how to use @nuxt/content to create a blog again]]></description>
             <content:encoded><![CDATA[Learning how to use @nuxt/content to create a blog again]]></content:encoded>
         </item>
@@ -75,7 +75,7 @@
             <title><![CDATA[Such a good title]]></title>
             <link>https://el-platono.github.io//article/such-a-good-title</link>
             <guid>https://el-platono.github.io//article/such-a-good-title</guid>
-            <pubDate>Sun, 03 Apr 2022 12:05:22 GMT</pubDate>
+            <pubDate>Sun, 03 Apr 2022 20:22:26 GMT</pubDate>
             <description><![CDATA[This is the description for and article about Lorem Ipsum]]></description>
             <content:encoded><![CDATA[This is the description for and article about Lorem Ipsum]]></content:encoded>
         </item>
@@ -83,7 +83,7 @@
             <title><![CDATA[What we know]]></title>
             <link>https://el-platono.github.io//article/what-we-know</link>
             <guid>https://el-platono.github.io//article/what-we-know</guid>
-            <pubDate>Sun, 03 Apr 2022 12:05:22 GMT</pubDate>
+            <pubDate>Sun, 03 Apr 2022 20:22:26 GMT</pubDate>
             <description><![CDATA[This is the description for the article about all the things we know]]></description>
             <content:encoded><![CDATA[This is the description for the article about all the things we know]]></content:encoded>
         </item>
