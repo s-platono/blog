@@ -5,7 +5,6 @@ export const actions = {
       .sortBy('createdAt', 'asc')
       .fetch()
     const articles = await $content('articles')
-      //
       .sortBy('createdAt', 'desc')
       .fetch()
     const authors = await $content('articles')
@@ -60,6 +59,5 @@ export const getters = {
   article: s => slug => s.articles.filter(a => a.slug === slug)[0],
   tagList: s => tagList => s.tags.filter(t => tagList.includes(t.name)),
   author: s => slug => s.authors.filter(t => t.slug === slug)[0],
-  links: (state, getters) => state.items.concat(getters.tags),
   paginatedPages: state => page => state.articles.slice((page - 1) * 11, page * 11)
 }

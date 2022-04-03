@@ -4,15 +4,15 @@
     tag="section"
   >
     <v-row>
-      <v-col cols="12" md="4">
+<!--      <v-col cols="12" md="4">
         <instagram/>
-      </v-col>
+      </v-col>-->
 
-      <v-col cols="12" md="4">
+      <v-col cols="12" md="6">
         <newest-posts/>
       </v-col>
 
-      <v-col cols="12" md="4">
+      <v-col cols="12" md="6">
         <tags/>
       </v-col>
     </v-row>
