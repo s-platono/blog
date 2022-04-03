@@ -1,0 +1,98 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "El Platono blog",
+    "home_page_url": "https://el-platono.github.io//article",
+    "description": "A description for your site here, this will show on the home page.",
+    "items": [
+        {
+            "id": "https://el-platono.github.io//article/article-about-me",
+            "content_html": "This is a description for the article about me",
+            "url": "https://el-platono.github.io//article/article-about-me",
+            "title": "Моя статья",
+            "summary": "This is a description for the article about me",
+            "date_modified": "2022-04-03T06:11:58.288Z",
+            "author": {}
+        },
+        {
+            "id": "https://el-platono.github.io//article/great-article",
+            "content_html": "I am a description of a great article",
+            "url": "https://el-platono.github.io//article/great-article",
+            "title": "Great Article",
+            "summary": "I am a description of a great article",
+            "date_modified": "2022-04-03T06:11:58.288Z",
+            "author": {}
+        },
+        {
+            "id": "https://el-platono.github.io//article/into-the-unknown",
+            "content_html": "This is a description for this article which describes what it is about",
+            "url": "https://el-platono.github.io//article/into-the-unknown",
+            "title": "Into the unknown",
+            "summary": "This is a description for this article which describes what it is about",
+            "date_modified": "2022-04-03T06:11:58.288Z",
+            "author": {}
+        },
+        {
+            "id": "https://el-platono.github.io//article/my-favoutie-blog-post",
+            "content_html": "This is a description for a blog post",
+            "url": "https://el-platono.github.io//article/my-favoutie-blog-post",
+            "title": "My favorite Blog Post",
+            "summary": "This is a description for a blog post",
+            "date_modified": "2022-04-03T06:11:58.288Z",
+            "author": {}
+        },
+        {
+            "id": "https://el-platono.github.io//article/my-first-blog-post",
+            "content_html": "Learning how to use @nuxt/content to create a blog",
+            "url": "https://el-platono.github.io//article/my-first-blog-post",
+            "title": "My First Blog Post",
+            "summary": "Learning how to use @nuxt/content to create a blog",
+            "date_modified": "2022-04-03T06:11:58.288Z",
+            "author": {}
+        },
+        {
+            "id": "https://el-platono.github.io//article/my-second-post",
+            "content_html": "Learning how to use @nuxt/content to create a blog",
+            "url": "https://el-platono.github.io//article/my-second-post",
+            "title": "My Second Blog Post",
+            "summary": "Learning how to use @nuxt/content to create a blog",
+            "date_modified": "2022-04-03T06:11:58.288Z",
+            "author": {}
+        },
+        {
+            "id": "https://el-platono.github.io//article/my-third-blog-post",
+            "content_html": "Learning how to use @nuxt/content to create a blog",
+            "url": "https://el-platono.github.io//article/my-third-blog-post",
+            "title": "My Third Blog Post",
+            "summary": "Learning how to use @nuxt/content to create a blog",
+            "date_modified": "2022-04-03T06:11:58.288Z",
+            "author": {}
+        },
+        {
+            "id": "https://el-platono.github.io//article/some-interesting-title",
+            "content_html": "Learning how to use @nuxt/content to create a blog again",
+            "url": "https://el-platono.github.io//article/some-interesting-title",
+            "title": "Some Interesting title",
+            "summary": "Learning how to use @nuxt/content to create a blog again",
+            "date_modified": "2022-04-03T06:11:58.288Z",
+            "author": {}
+        },
+        {
+            "id": "https://el-platono.github.io//article/such-a-good-title",
+            "content_html": "This is the description for and article about Lorem Ipsum",
+            "url": "https://el-platono.github.io//article/such-a-good-title",
+            "title": "Such a good title",
+            "summary": "This is the description for and article about Lorem Ipsum",
+            "date_modified": "2022-04-03T06:11:58.288Z",
+            "author": {}
+        },
+        {
+            "id": "https://el-platono.github.io//article/what-we-know",
+            "content_html": "This is the description for the article about all the things we know",
+            "url": "https://el-platono.github.io//article/what-we-know",
+            "title": "What we know",
+            "summary": "This is the description for the article about all the things we know",
+            "date_modified": "2022-04-03T06:11:58.288Z",
+            "author": {}
+        }
+    ]
+}
