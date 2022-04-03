@@ -55,8 +55,28 @@
       ...mapGetters(['tags']),
     },
 
+    data() {
+      return {
+        searchQuery: '',
+        articles: []
+      }
+    },
+
     methods: {
       ...mapMutations(['toggleDrawer']),
     },
+
+    watch: {
+      async searchQuery(searchQuery) {
+        if (!searchQuery) {
+          this.articles = []
+          return
+        }
+        this.articles = await this.$content('articles')
+          .limit(6)
+          .search(searchQuery)
+          .fetch()
+      }
+    }
   }
 </script>
