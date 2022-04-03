@@ -37,13 +37,13 @@
 </template>
 
 <script>
+import global from "~/utils/global";
 export default {
   name: "Pagination",
-  props: ['page', 'pages'],
+  props: ['total'],
   computed: {
-    totalPages() {
-      console.log(this.pages)
-      return Math.ceil(this.pages / 11);
+    pages() {
+      return Math.ceil(this.total.length / global.perPage);
     },
     currentPage() {
       return parseInt(this.$route.params.page) || 1;

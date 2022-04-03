@@ -4,7 +4,7 @@
       <core-app-bar />
       <core-drawer />
       <core-view />
-      <social />
+<!--      <social />-->
       <core-footer />
     </div>
   </div>

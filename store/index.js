@@ -59,5 +59,4 @@ export const getters = {
   article: s => slug => s.articles.filter(a => a.slug === slug)[0],
   tagList: s => tagList => s.tags.filter(t => tagList.includes(t.name)),
   author: s => slug => s.authors.filter(t => t.slug === slug)[0],
-  paginatedPages: state => page => state.articles.slice((page - 1) * 11, page * 11)
 }

@@ -97,16 +97,20 @@ export default {
           name: "twitter:description",
           content: this.article.description
         }
-      ]
+      ],
+      link: [
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: `${this.$config.baseUrl}/articles/${this.$route.params.slug}`,
+        },
+      ],
     }
   },
   methods: {
     formatDate(date) {
       const options = {year: 'numeric', month: 'long', day: 'numeric'}
       return new Date(date).toLocaleDateString('ru', options)
-    },
-    modifyToc(article) {
-
     }
   }
 }
