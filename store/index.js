@@ -37,16 +37,12 @@ export const state = () => ({
 })
 
 export const mutations = {
-  setTags: (state, data) => {
-    state.tags.push(...data);
-  },
+  setTags: (state, data) => state.tags.push(...data),
   setArticles: (state, data) => {
     state.articles.push(...data)
     state.articles.sort((a, b) => a.createdAt > b.createdAt ? 1 : a.createdAt === b.createdAt ? 0 : -1)
   },
-  setAuthors: (state, data) => {
-    state.authors.push(...data)
-  },
+  setAuthors: (state, data) => state.authors.push(...data),
   setDrawer: (state, payload) => (state.drawer = payload),
   toggleDrawer: state => (state.drawer = !state.drawer),
 }
