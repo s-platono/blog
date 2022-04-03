@@ -1,5 +1,7 @@
 import global from "~/utils/global";
 
+//TODO 04.04.2022 - need refactor
+
 export default async ($content, params, error) => {
   const currentPage = parseInt(params.page)
 
@@ -18,13 +20,25 @@ export default async ($content, params, error) => {
     if (currentPage === lastPage) return totalArticles - lastPageCount
     return (currentPage - 1) * global.perPage
   }
+  let paginatedArticles
 
-  const paginatedArticles = await $content('articles')
-    .only(['title', 'description', 'img', 'slug', 'tags', 'createdAt', 'author'])
-    .sortBy('createdAt', 'desc')
-    .limit(global.perPage)
-    .skip(skipNumber())
-    .fetch()
+  if(params.tag) {
+    paginatedArticles = await $content('articles')
+      .only(['title', 'description', 'img', 'slug', 'tags', 'createdAt', 'author'])
+      .where({ tags: { $contains: params.tag.name } })
+      .sortBy('createdAt', 'asc')
+      .limit(global.perPage)
+      .skip(skipNumber())
+      .fetch()
+  } else {
+    paginatedArticles = await $content('articles')
+      .only(['title', 'description', 'img', 'slug', 'tags', 'createdAt', 'author'])
+      .sortBy('createdAt', 'asc')
+      .limit(global.perPage)
+      .skip(skipNumber())
+      .fetch()
+  }
+
 
   if (currentPage === 0 || !paginatedArticles.length) {
     return error({statusCode: 404, message: 'No articles found!'})
