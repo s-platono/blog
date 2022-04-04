@@ -33,7 +33,7 @@
           flat
           hide-details
           solo-inverted
-          :max-width="$vuetify.breakpoint.xs ? '220px' : '300px'"
+          :style="`max-width: ${$vuetify.breakpoint.xs ? '220px' : '300px'};`"
           class="col-sm-2 col-md-2 col-9"
         />
       </v-row>
