@@ -33,8 +33,8 @@
           flat
           hide-details
           solo-inverted
-          style="max-width: 300px;"
-          class="col-9 col-md-2 col-sm-2"
+          :max-width="$vuetify.breakpoint.xs ? '220px' : '300px'"
+          class="col-sm-2 col-md-2 col-9"
         />
       </v-row>
     </v-container>
@@ -80,3 +80,5 @@
     }
   }
 </script>
+<style lang="scss">
+</style>
