@@ -70,7 +70,7 @@ export default {
   },
 
   css: [
-    // { src: '~/assets/css/styles.scss', lang: 'scss'}
+    { src: '~/assets/css/styles.scss', lang: 'scss'}
   ],
   loading: {
     color: '#083759',
@@ -89,13 +89,14 @@ export default {
     '@nuxtjs/fontawesome',
     '@nuxtjs/style-resources',
     '@nuxtjs/google-analytics',
-  ],
-
-  modules: [
     '@nuxt/content',
     '@nuxtjs/vuetify',
     '@nuxtjs/feed',
     '@nuxtjs/sitemap',
+  ],
+
+  modules: [
+
   ],
 
   content: {

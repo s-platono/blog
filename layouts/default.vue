@@ -1,13 +1,11 @@
 <template>
-  <div id="page" class="v-application v-application--is-ltr theme--light">
-    <div class="v-application--wrap">
-      <core-app-bar />
-      <core-drawer />
-      <core-view />
-<!--      <social />-->
-      <core-footer />
-    </div>
-  </div>
+  <v-app>
+    <core-app-bar/>
+    <core-drawer/>
+    <core-view/>
+    <!--      <social />-->
+    <core-footer/>
+  </v-app>
 </template>
 <script>
 export default {
@@ -16,9 +14,19 @@ export default {
     CoreFooter: () => import('@/components/core/Footer'),
     CoreAppBar: () => import('@/components/core/AppBar'),
     CoreView: () => import('@/components/core/View'),
-    Social: () => import('@/components/home/Social'),
+    Social: () => import('@/components/home/Social')
   },
 }
 </script>
 <style lang="scss">
+.v-application--wrap {
+  flex: 1 1 auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 100%;
+  position: relative;
+}
 </style>
