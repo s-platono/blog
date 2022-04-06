@@ -1,5 +1,5 @@
 <template>
-  <v-sheet elevation="2" class="mt-4">
+  <v-sheet elevation="2" class="mt-0">
     <v-parallax :src="article.img" dark height="400">
       <v-row align="center" justify="center">
         <v-col class="text-center" cols="12">
