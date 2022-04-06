@@ -6,14 +6,10 @@ const meta = getSiteMeta();
 
 export default {
   target: 'static',
-  // router: {
-  //   base: '/blog/'
-  // },
   head: {
     title: 'El Platono',
     htmlAttrs: {
       lang: 'ru-RU',
-      // class: 'bg-black',
     },
     meta: [
       ...meta,
@@ -126,7 +122,9 @@ export default {
     theme: {
       themes: {
         light: {
-          primary: '#CBAA5C',
+          // primary: '#CBAA5C',
+          primary: '#455a64',
+          // secondary: '#083759',
           secondary: '#083759',
         },
       },
