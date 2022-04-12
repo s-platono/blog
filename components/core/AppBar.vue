@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app flat>
+  <v-app-bar app flat dark>
     <v-app-bar-nav-icon class="hidden-md-and-up" @click="toggleDrawer"/>
 
     <v-container class="mx-auto py-0">

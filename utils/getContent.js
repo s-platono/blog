@@ -5,7 +5,9 @@ import global from "~/utils/global";
 export default async ($content, params, error) => {
   const currentPage = parseInt(params.page)
 
-  const allArticles = await $content('articles').fetch()
+  const allArticles = !params.tag ?
+    await $content('articles').fetch() :
+    await $content('articles').where({ tags: { $contains: params.tag.name } }).fetch();
 
   const totalArticles = allArticles.length
 

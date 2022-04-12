@@ -36,13 +36,14 @@
 </template>
 
 <script>
+import global from "~/utils/global";
 export default {
   name: 'CoreFooter',
 
   data: () => ({
     items: [
       {
-        href: 'https://twitter.com/el_platono',
+        href: global.twitterURL,
         icon: 'mdi-twitter',
       },
       /*{
