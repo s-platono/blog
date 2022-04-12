@@ -19,7 +19,7 @@
           v-for="(tag, i) in tags"
           :key="i"
           v-bind="tag"
-          class="hidden-sm-and-down"
+          class="hidden-sm-and-down mx-1"
           text
           :to="`/tag/${tag.slug}`"
         >
