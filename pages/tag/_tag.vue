@@ -13,7 +13,6 @@ export default {
   },
   watchQuery: ['page'],
   async asyncData({ $content, app, params, error, route }) {
-    console.log(route.query.page)
     const tags = await $content('tags')
       .where({ slug: { $contains: params.tag } })
       .limit(1)
