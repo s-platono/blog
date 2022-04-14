@@ -1,6 +1,6 @@
 <template>
   <section id="feed">
-    <feed :articles="articles" :total="total">
+    <feed :articles="articles" :total="total" :page-type="pageType">
       <slot />
     </feed>
   </section>
@@ -14,6 +14,6 @@
       Feed: () => import('@/components/Feed'),
     },
 
-    props: ['articles', 'total']
+    props: ['articles', 'total', 'pageType']
   }
 </script>

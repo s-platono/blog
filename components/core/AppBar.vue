@@ -21,7 +21,7 @@
           v-bind="tag"
           class="hidden-sm-and-down mx-1"
           text
-          :to="`/tag/${tag.slug}`"
+          :to="`/tag/${tag.slug}?page=1`"
         >
           {{ tag.name }}
         </v-btn>

@@ -13,7 +13,7 @@
       />
     </v-row>
 
-    <Pagination :total="total"/>
+    <Pagination :total="total" :page-type="pageType"/>
   </v-container>
 </template>
 
@@ -30,7 +30,7 @@ export default {
   data: () => ({
     layout: [2, 2, 1, 2, 2, 3, 3, 3, 3, 3, 3],
   }),
-  props: ['articles', 'total'],
+  props: ['articles', 'total', 'pageType'],
 
   computed: {
     pages() {

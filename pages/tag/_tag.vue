@@ -1,5 +1,5 @@
 <template>
-  <articles :articles="articles" :total="total">
+  <articles :articles="articles" :total="total" page-type="tag">
 
   </articles>
 </template>
@@ -11,14 +11,16 @@ export default {
   components: {
     Articles: () => import('@/components/home/Articles'),
   },
-  async asyncData({ $content, app, params, error }) {
+  watchQuery: ['page'],
+  async asyncData({ $content, app, params, error, route }) {
+    console.log(route.query.page)
     const tags = await $content('tags')
       .where({ slug: { $contains: params.tag } })
       .limit(1)
       .fetch()
     const tag = tags.length > 0 ? tags[0] : undefined
     params.tag = tag
-    const content = await getContent($content, params, error)
+    const content = await getContent($content, params, error, route)
 
     // const articles = await $content('articles')
     //   .where({ tags: { $contains: tag.name } })

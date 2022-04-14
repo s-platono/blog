@@ -1,12 +1,12 @@
 <template>
-  <v-row align="center" v-if="pages > 1">
-    <v-col cols="3">
+
+<!--    <v-col cols="3">
       <base-btn
         v-if="currentPage !== 1"
         class="ml-0"
         square
         title="Previous page"
-        :to="{ name: 'article-page-page', params: { page: prevPage } }"
+        :to="{ name: `${type}-page-page`, params: { page: prevPage, tag: this.$route.params.tag } }"
       >
         <v-icon>mdi-chevron-left</v-icon>
       </base-btn>
@@ -28,26 +28,38 @@
         class="mr-0"
         square
         title="Next page"
-        :to="{ name: 'article-page-page', params: { page: nextPage } }"
+        :to="{ name: `${type}-page-page`, params: { page: nextPage, tag: this.$route.params.tag } }"
       >
         <v-icon>mdi-chevron-right</v-icon>
       </base-btn>
-    </v-col>
-  </v-row>
+    </v-col>-->
+    <div class="text-center mt-3" v-show="pages > 1">
+      <v-pagination
+        v-model="currentPage"
+        :length="pages"
+        :total-visible="5"
+        @input="handlePageChange"
+      ></v-pagination>
+    </div>
 </template>
 
 <script>
 import global from "~/utils/global";
 export default {
   name: "Pagination",
-  props: ['total'],
+  props: ['total', 'pageType'],
+  data () {
+    return {
+      currentPage: parseInt(this.$route.query.page) || 1,
+    }
+  },
   computed: {
     pages() {
       return Math.ceil(this.total.length / global.perPage);
     },
-    currentPage() {
-      return parseInt(this.$route.params.page) || 1;
-    },
+    /*currentPage() {
+      return
+    },*/
     prevPage() {
       return this.currentPage > 1 ? this.currentPage - 1 : 1;
     },
@@ -56,6 +68,15 @@ export default {
         ? this.currentPage + 1
         : this.pages;
     },
+  },
+  methods: {
+    handlePageChange(page) {
+      this.$router.push({
+        query: {
+          page: page,
+        },
+      })
+    }
   }
 }
 </script>

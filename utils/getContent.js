@@ -2,8 +2,8 @@ import global from "~/utils/global";
 
 //TODO 04.04.2022 - need refactor
 
-export default async ($content, params, error) => {
-  const currentPage = parseInt(params.page)
+export default async ($content, params, error, route) => {
+  const currentPage = parseInt(route.query.page)
 
   const allArticles = !params.tag ?
     await $content('articles').fetch() :

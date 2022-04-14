@@ -9,5 +9,5 @@ export default {
   siteDesc: 'A description for your site here, this will show on the home page.',
   mainImage: '',
   siteType: 'website',
-  perPage: 11,
+  perPage: 2,
 };

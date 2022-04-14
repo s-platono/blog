@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <articles :articles="articles" :total="total">
+    <articles :articles="articles" :total="total" page-type="article">
 <!--      <banner />-->
     </articles>
 <!--    <about />-->
@@ -19,8 +19,9 @@ export default {
     Banner: () => import('@/components/home/Banner'),
     Subscribe: () => import('@/components/home/Subscribe'),
   },
-  async asyncData({ $content, app, params, error }) {
-    const content = await getContent($content, params, error)
+  watchQuery: ['page'],
+  async asyncData({ $content, app, params, error, route }) {
+    const content = await getContent($content, params, error, route)
       /*await $content('articles')
       .only(['title', 'description', 'img', 'slug', 'author'])
       .sortBy('createdAt', 'desc')
