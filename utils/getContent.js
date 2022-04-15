@@ -27,7 +27,7 @@ export default async ($content, params, error, route) => {
   if(params.tag) {
     paginatedArticles = await $content('articles')
       .only(['title', 'description', 'img', 'slug', 'tags', 'createdAt', 'author'])
-      .where({ tags: { $contains: params.tag.name } })
+      .where({ tags: { $contains: params.tag.name.toLowerCase() } })
       .sortBy('createdAt', 'asc')
       .limit(global.perPage)
       .skip(skipNumber())

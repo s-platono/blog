@@ -1,12 +1,21 @@
 export const actions = {
   async nuxtServerInit({commit}, {$content}) {
-    const tags = await $content('tags')
+    let tags = await $content('tags')
       .only(['name', 'description', 'img', 'slug'])
       .sortBy('createdAt', 'asc')
       .fetch()
     const articles = await $content('articles')
       .sortBy('createdAt', 'desc')
       .fetch()
+
+    let existingTags = []
+
+    articles.forEach(article => {
+      existingTags.push(...article.tags.filter(tag => existingTags.findIndex(x => x === tag) === -1))
+    })
+
+    tags = tags.filter(tag => existingTags.findIndex(x => x.toLocaleLowerCase() === tag.name.toLowerCase()) !== -1)
+
     const authors = await $content('articles')
       .only(['author'])
       .sortBy('createdAt', 'desc')
@@ -53,6 +62,6 @@ export const getters = {
   authors: s => s.authors,
 
   article: s => slug => s.articles.filter(a => a.slug === slug)[0],
-  tagList: s => tagList => s.tags.filter(t => tagList.includes(t.name)),
+  tagList: s => tagList => s.tags.filter(t => tagList.includes(t.name.toLowerCase())),
   author: s => slug => s.authors.filter(t => t.slug === slug)[0],
 }
