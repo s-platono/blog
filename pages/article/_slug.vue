@@ -32,8 +32,8 @@ export default {
     ArticleHeader: () => import('~/components/core/article/Header'),
   },
   async asyncData({$content, params, store}) {
-    // const article = await $content('articles', params.slug).fetch()
-    const article = store.getters.article(params.slug)
+    const article = await $content('articles', params.slug).fetch()
+    // const article = Object.assign({}, ...store.getters.article(params.slug))
 
     let lastParent = 0
     let result = []
