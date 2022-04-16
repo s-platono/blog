@@ -101,7 +101,9 @@ export default {
         theme: 'prism-themes/themes/prism-material-oceanic.css'
       }
     },
-    nestedProperties: ['author.name']
+    nestedProperties: ['author.name'],
+    fullTextSearchFields: ['title', 'description'],
+    liveEdit: false
   },
 
   build: {},
