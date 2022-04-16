@@ -7,7 +7,7 @@
             {{ article.title }}
           </h1>
           <h4 class="subheading">
-            {{ article.author.name }}
+            {{ article.description }}
           </h4>
           <h5 class="subheading">
             {{ formatDate(article.createdAt) }}
