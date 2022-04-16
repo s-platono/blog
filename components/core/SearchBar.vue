@@ -64,7 +64,6 @@ export default {
   },
   methods: {
     handleClick(item) {
-      console.log(this.$refs.bar)
       this.$refs.bar.reset()
       this.$refs.bar.blur()
       this.$router.push({ name: 'article-slug', params: { slug: item } })
