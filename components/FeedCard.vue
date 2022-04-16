@@ -60,6 +60,7 @@
 
 <script>
 import {mapGetters} from 'vuex'
+import {formatDate} from "~/utils/utils";
 
 export default {
   name: 'FeedCard',
@@ -86,8 +87,7 @@ export default {
   },
   methods: {
     formatDate(date) {
-      const options = {year: 'numeric', month: 'long', day: 'numeric'}
-      return new Date(date).toLocaleDateString('ru', options)
+      return formatDate(date)
     }
   }
 }

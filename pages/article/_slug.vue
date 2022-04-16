@@ -27,27 +27,14 @@
 </template>
 <script>
 import getSiteMeta from "~/utils/getSiteMeta";
+import {formatDate, formatToc} from "~/utils/utils";
 export default {
   components: {
     ArticleHeader: () => import('~/components/core/article/Header'),
   },
   async asyncData({$content, params, store}) {
     const article = await $content('articles', params.slug).fetch()
-    // const article = Object.assign({}, ...store.getters.article(params.slug))
-
-    let lastParent = 0
-    let result = []
-    for (let key in article.toc) {
-      let link = article.toc[key]
-      if(link.depth === 2) {
-        link.child = []
-        lastParent = result.push(link) - 1
-      } else {
-        result[lastParent].child.push(link)
-      }
-    }
-    article.tableOfContent = result
-
+    article.tableOfContent = formatToc(article)
 
     /* const tagsList = await $content('tags')
        .only(['name', 'slug'])
@@ -55,16 +42,10 @@ export default {
        .fetch()*/
     const tagsList = store.getters.tagList(article.tags)
     const tags = Object.assign({}, ...tagsList.map((s) => ({[s.name]: s})))
-    const [prev, next] = await $content('articles')
-      .only(['title', 'slug'])
-      .sortBy('createdAt', 'asc')
-      .surround(params.slug)
-      .fetch()
+
     return {
       article,
       tags,
-      prev,
-      next
     }
   },
   computed: {
@@ -142,8 +123,7 @@ export default {
   },
   methods: {
     formatDate(date) {
-      const options = {year: 'numeric', month: 'long', day: 'numeric'}
-      return new Date(date).toLocaleDateString('ru', options)
+      return formatDate(date)
     }
   }
 }

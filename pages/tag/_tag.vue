@@ -21,10 +21,6 @@ export default {
     params.tag = tag
     const content = await getContent($content, params, error, route)
 
-    // const articles = await $content('articles')
-    //   .where({ tags: { $contains: tag.name } })
-    //   .sortBy('createdAt', 'asc')
-    //   .fetch()
     return {
       total: content.allArticles,
       articles: content.paginatedArticles,
@@ -37,10 +33,6 @@ export default {
     }
   },
   methods: {
-    formatDate(date) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' }
-      return new Date(date).toLocaleDateString('ru', options)
-    },
     capitalizeFirstLetter(string) {
       return string.charAt(0).toUpperCase() + string.slice(1)
     }
