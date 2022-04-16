@@ -4,8 +4,6 @@
     :items="items"
     :loading="isLoading"
     :search-input.sync="search"
-    chips
-    clearable
     hide-details
     hide-no-data
     hide-selected
@@ -20,11 +18,8 @@
   >
     <template v-slot:selection="{ attr, on, item, selected }"></template>
     <template v-slot:item="{ item }">
-        <v-list-item-avatar
-          color="indigo"
-          class="text-h5 font-weight-light white--text"
-        >
-          <img :src="item.img">
+        <v-list-item-avatar color="indigo" class="text-h5 font-weight-light white--text">
+          <img :src="item.img" alt="" />
         </v-list-item-avatar>
         <v-list-item-content>
           <v-list-item-title v-text="item.title"></v-list-item-title>
@@ -35,7 +30,7 @@
 </template>
 
 <script>
-
+import global from "~/utils/global";
 export default {
   name: "SearchBar",
   data: () => ({
@@ -55,6 +50,7 @@ export default {
 
       this.$content('articles')
         .where({description: {$contains: val, ignoreCase: true}})
+        .limit(global.searchLimit)
         .fetch()
         .then(res => this.items = res)
         .catch(err => console.error(err))

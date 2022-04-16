@@ -10,4 +10,5 @@ export default {
   mainImage: '',
   siteType: 'website',
   perPage: 11,
+  searchLimit: 5,
 };
